@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../../../styles/remixicon.css";
-import "react-tabs/style/react-tabs.css";
+//import "react-tabs/style/react-tabs.css";
 import "swiper/css";
 import "swiper/css/bundle";
 // Chat Styles
