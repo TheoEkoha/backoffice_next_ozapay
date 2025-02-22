@@ -7,7 +7,8 @@
     "export": "next export",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "plesk": "nextjs-plesk-fix"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
