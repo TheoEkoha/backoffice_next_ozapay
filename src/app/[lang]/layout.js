@@ -43,3 +43,12 @@ export default function RootLayout({ children, params: { lang } }) {
 		</html>
 	);
 }
+
+export async function generateStaticParams() {
+	// Remplacez ceci par les langues que vous souhaitez prendre en charge
+	const languages = ['en', 'fr', 'es'];
+  
+	return languages.map((lang) => ({
+	  lang,
+	}));
+  }

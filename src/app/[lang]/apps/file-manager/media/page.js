@@ -4,6 +4,12 @@ import PageTitle from "@/components/Common/PageTitle";
 import LeftSidebar from "@/components/Apps/FileManager/LeftSidebar";
 import MediaFiles from "@/components/Apps/FileManager/MediaFiles";
 
+export async function generateStaticParams() {
+  const langs = ['en', 'fr', 'es']; // Remplace par les langues que tu supportes
+  return langs.map((lang) => ({
+    lang,
+  }));
+}
 export default function Page({ params: { lang } }) {
   return (
     <>

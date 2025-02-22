@@ -4,6 +4,14 @@ import PageTitle from "@/components/Common/PageTitle";
 import LeftSidebar from "@/components/Apps/FileManager/LeftSidebar";
 import ImportantFiles from "@/components/Apps/FileManager/ImportantFiles";
 
+// Cette fonction génère les paramètres statiques pour la page dynamique
+export async function generateStaticParams() {
+  const langs = ['en', 'fr', 'es']; // Remplace par les langues que tu supportes
+  return langs.map((lang) => ({
+    lang,
+  }));
+}
+
 export default function Page({ params: { lang } }) {
   return (
     <>
