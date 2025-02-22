@@ -2,6 +2,7 @@
   "name": "admash",
   "version": "1.7.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "export": "next export",
     "build": "next build",
