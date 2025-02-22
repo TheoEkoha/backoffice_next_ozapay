@@ -7,6 +7,7 @@
     "export": "next export",
     "build": "next build",
     "start": "next start",
+    "start_vps": "next start -p 1337",
     "lint": "eslint .",
     "plesk": "nextjs-plesk-fix"
   },
