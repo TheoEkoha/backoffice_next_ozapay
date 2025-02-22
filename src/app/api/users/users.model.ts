@@ -1,4 +1,4 @@
-export interface UserDocument {
+export type UserDocument = {
     id: string;
     firstName: string;
     lastName: string;
