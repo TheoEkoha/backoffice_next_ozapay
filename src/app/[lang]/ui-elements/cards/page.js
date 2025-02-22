@@ -65,7 +65,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -160,7 +160,7 @@ export default function Page() {
               height={176}
             />
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -229,7 +229,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -303,7 +303,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -395,7 +395,7 @@ export default function Page() {
               </Box>
 
               <Typography
-                as="h3"
+                component="h3"
                 fontWeight="500"
                 fontSize="16px"
                 mb="10px"
@@ -454,7 +454,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -554,7 +554,7 @@ export default function Page() {
               height={176}
             />
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -638,7 +638,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -730,7 +730,7 @@ export default function Page() {
               </Box>
 
               <Typography
-                as="h3"
+                component="h3"
                 fontWeight="500"
                 fontSize="16px"
                 mb="10px"
@@ -809,7 +809,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 
@@ -901,7 +901,7 @@ export default function Page() {
               </Box>
 
               <Typography
-                as="h3"
+                component="h3"
                 fontWeight="500"
                 fontSize="16px"
                 mb="10px"
@@ -960,7 +960,7 @@ export default function Page() {
               </Button>
             </Box>
 
-            <Typography as="h3" fontWeight="500" fontSize="16px" mb="5px">
+            <Typography component="h3" fontWeight="500" fontSize="16px" mb="5px">
               Nesta Technologies
             </Typography>
 

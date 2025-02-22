@@ -68,9 +68,9 @@ const TotalUsersChart = () => {
           <Typography color="#A9A9C8" mb={1} fontSize="14px">
             Target
           </Typography>
-          <Typography fontWeight="500" fontSize="18px" as="h4">
+          <Typography fontWeight="500" fontSize="18px" component="h4">
             <ArrowDownwardIcon
-              color="danger"
+              color="error"
               style={{ position: "relative", top: "3px" }}
             />{" "}
             18k
@@ -81,7 +81,7 @@ const TotalUsersChart = () => {
           <Typography color="#A9A9C8" mb={1} fontSize="14px">
             Last Week
           </Typography>
-          <Typography fontWeight="500" fontSize="18px" as="h4">
+          <Typography fontWeight="500" fontSize="18px" component="h4">
             <ArrowUpwardIcon
               color="success"
               style={{ position: "relative", top: "3px" }}
@@ -94,9 +94,9 @@ const TotalUsersChart = () => {
           <Typography color="#A9A9C8" mb={1} fontSize="14px">
             Last Month
           </Typography>
-          <Typography fontWeight="500" fontSize="18px" as="h4">
+          <Typography fontWeight="500" fontSize="18px" component="h4">
             <ArrowDownwardIcon
-              color="danger"
+              color="error"
               style={{ position: "relative", top: "3px" }}
             />{" "}
             32k

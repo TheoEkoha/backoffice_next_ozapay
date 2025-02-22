@@ -77,11 +77,11 @@ const Features = () => {
                 }}
               >
                 <Box>
-                  <Typography as="p" sx={{ fontSize: 15 }}>
+                  <Typography component="p" sx={{ fontSize: 15 }}>
                     {feature.subTitle}
                   </Typography>
 
-                  <Typography as="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
+                  <Typography component="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
                     {feature.number}
                   </Typography>
                 </Box>
@@ -117,7 +117,7 @@ const Features = () => {
                     className={`progressIcon ${feature.progressIcon}`} 
                   ></i>
                 </span>
-                <Typography as="p" className="ml-10px">
+                <Typography component="p" className="ml-10px">
                   {feature.helpText}
                 </Typography>
               </Box>

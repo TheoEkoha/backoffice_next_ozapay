@@ -337,7 +337,7 @@ export default function InvoiceLists() {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -559,7 +559,7 @@ export default function InvoiceLists() {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />

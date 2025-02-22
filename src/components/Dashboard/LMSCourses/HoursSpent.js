@@ -122,7 +122,7 @@ const HoursSpent = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,

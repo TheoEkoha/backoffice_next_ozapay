@@ -207,7 +207,7 @@ const ToDo = () => {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -360,7 +360,7 @@ const ToDo = () => {
                   <IconButton
                     aria-label="remove"
                     size="small"
-                    color="danger"
+                    color="error"
                     sx={{
                       background: '#fff',
                       ml: '5px'
@@ -386,7 +386,7 @@ const ToDo = () => {
               </Box>
             </Box>
 
-            <Typography as="h6" fontSize="14px" fontWeight="500" mb="5px">
+            <Typography component="h6" fontSize="14px" fontWeight="500" mb="5px">
               {project.projectName}
             </Typography>
 

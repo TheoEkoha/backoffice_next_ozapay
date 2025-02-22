@@ -21,7 +21,7 @@ const BasicBadge = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -38,7 +38,7 @@ const BasicBadge = () => {
 
           <Badge 
             badgeContent={4} 
-            color="danger"
+            color="error"
             sx={{
               color: '#fff'
             }}

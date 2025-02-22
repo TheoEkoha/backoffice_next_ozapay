@@ -54,7 +54,7 @@ const CurrentCourses = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -83,7 +83,7 @@ const CurrentCourses = () => {
                   }}
                 >
                   <Box>
-                    <Typography as="h3" fontSize="18px" fontWeight="700">
+                    <Typography component="h3" fontSize="18px" fontWeight="700">
                       {course.title}
                     </Typography>
                     <Typography

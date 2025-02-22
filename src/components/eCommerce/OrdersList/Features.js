@@ -150,7 +150,7 @@ const Features = () => {
                     </Typography>
 
                     <Typography
-                      as="h4"
+                      component="h4"
                       sx={{
                         fontSize: "18px",
                         fontWeight: "500",

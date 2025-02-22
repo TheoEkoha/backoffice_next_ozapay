@@ -46,7 +46,7 @@ export default function Page({ params: { lang } }) {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500,
@@ -57,7 +57,7 @@ export default function Page({ params: { lang } }) {
             </Typography>
 
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,
@@ -138,7 +138,7 @@ export default function Page({ params: { lang } }) {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500,
@@ -149,7 +149,7 @@ export default function Page({ params: { lang } }) {
             </Typography>
 
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,
@@ -249,7 +249,7 @@ export default function Page({ params: { lang } }) {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500,
@@ -260,7 +260,7 @@ export default function Page({ params: { lang } }) {
             </Typography>
 
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,

@@ -51,7 +51,7 @@ export default function Page() {
               />
             </Box>
 
-            <Typography as="h1" fontSize="20px" fontWeight="500" mb={1}>
+            <Typography component="h1" fontSize="20px" fontWeight="500" mb={1}>
               Success!
             </Typography>
             <Typography>

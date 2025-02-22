@@ -74,7 +74,7 @@ export default function PrivacyPolicyContent() {
       <Box mt={3}>
         <Button 
           variant="contained"
-          color="danger"
+          color="error"
           size="large"
           sx={{
             background: 'rgba(238, 54, 140, 0.1)',
@@ -88,7 +88,7 @@ export default function PrivacyPolicyContent() {
 
         <Button 
           variant="contained"
-          color="danger"
+          color="error"
           size="large"
           sx={{
             background: 'rgba(117, 127, 239, 0.1)',

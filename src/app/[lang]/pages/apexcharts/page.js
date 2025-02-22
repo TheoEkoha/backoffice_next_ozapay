@@ -40,7 +40,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Line Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -77,7 +77,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Area Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -115,7 +115,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Column Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -147,7 +147,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Bar Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -185,7 +185,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Mixed Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -220,7 +220,7 @@ export default function Page({ params: { lang } }) {
 
       {/* Radar Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,
@@ -257,7 +257,7 @@ export default function Page({ params: { lang } }) {
 
       {/* RadialBar Charts */}
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 600,

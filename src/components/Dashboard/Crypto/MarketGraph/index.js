@@ -466,7 +466,7 @@ const MarketGraph = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -562,7 +562,7 @@ const MarketGraph = () => {
                   <KeyboardArrowUpIcon color="success" sx={{ ml: "5px" }} />
                 </Typography>
                 <Typography
-                  as="h3"
+                  component="h3"
                   sx={{ fontSize: "17px", fontWeight: "500", mb: "0px" }}
                 >
                   $35,294.90

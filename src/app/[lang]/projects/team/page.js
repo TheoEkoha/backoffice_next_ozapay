@@ -373,7 +373,7 @@ const Team = ({ params: { lang } }) => {
                   />
                   <Box className="ml-1">
                     <Typography
-                      as="h3"
+                      component="h3"
                       sx={{
                         fontSize: 15,
                         fontWeight: 500,
@@ -400,7 +400,7 @@ const Team = ({ params: { lang } }) => {
                     <IconButton
                       aria-label="remove"
                       size="small"
-                      color="danger"
+                      color="error"
                       className="danger"
                       sx={{
                         background: "#fff",
@@ -431,7 +431,7 @@ const Team = ({ params: { lang } }) => {
               <Box sx={{ p: "20px" }}>
                 <Box mb={2}>
                   <Typography
-                    as="h3"
+                    component="h3"
                     sx={{
                       fontSize: 15,
                       fontWeight: 500,
@@ -459,7 +459,7 @@ const Team = ({ params: { lang } }) => {
                   >
                     <Box>
                       <Typography
-                        as="h3"
+                        component="h3"
                         sx={{
                           fontSize: 14,
                           fontWeight: 500,

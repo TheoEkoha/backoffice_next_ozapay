@@ -23,7 +23,7 @@ export default function ImageListWithTitleBars() {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,

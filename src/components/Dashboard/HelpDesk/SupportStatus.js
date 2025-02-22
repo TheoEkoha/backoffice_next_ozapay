@@ -39,7 +39,7 @@ const SupportStatus = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -80,7 +80,7 @@ const SupportStatus = () => {
 
         <Box>
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               color: "#5B5B98",
@@ -140,7 +140,7 @@ const SupportStatus = () => {
             className="bg-black"
           >
             <Typography
-              as="h4"
+              component="h4"
               fontSize="15px"
               color="#757FEF"
               fontWeight="500"

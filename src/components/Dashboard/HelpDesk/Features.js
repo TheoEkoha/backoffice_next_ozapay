@@ -71,7 +71,7 @@ const Features = () => {
                 }}
               >
                 <Box>
-                  <Typography as="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
+                  <Typography component="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
                     {feature.number}
                   </Typography>
                 </Box>
@@ -86,12 +86,12 @@ const Features = () => {
                 </Box>
               </Box>
 
-              <Typography as="h3" fontSize={16} fontWeight={500} mb="5px">
+              <Typography component="h3" fontSize={16} fontWeight={500} mb="5px">
                 {feature.subTitle}
               </Typography>
 
               <Typography
-                as="p"
+                component="p"
                 sx={{
                   fontSize: "13px",
                 }}

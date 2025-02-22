@@ -122,7 +122,7 @@ const TrashFiles = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -209,7 +209,7 @@ const TrashFiles = () => {
                         height={22}
                       />
                       <Typography
-                        as="h5"
+                        component="h5"
                         fontWeight="500"
                         fontSize="13px"
                         className="ml-1"
@@ -259,7 +259,7 @@ const TrashFiles = () => {
                         <IconButton
                           aria-label="Remove Permanently"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />

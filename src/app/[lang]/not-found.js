@@ -19,7 +19,7 @@ export default function ErrorPage() {
         <Image src="/images/error.png" alt="error" width={672} height={283} />
 
         <Typography
-          as="h1"
+          component="h1"
           sx={{
             fontWeight: "500",
             fontSize: "22px",

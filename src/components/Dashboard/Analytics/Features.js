@@ -84,7 +84,7 @@ const Features = () => {
                 </Box>
 
                 <Box>
-                  <Typography as="p" sx={{ fontSize: "13px", mb: "5px" }}>
+                  <Typography component="p" sx={{ fontSize: "13px", mb: "5px" }}>
                     {feature.subTitle}
                   </Typography>
                   <Typography

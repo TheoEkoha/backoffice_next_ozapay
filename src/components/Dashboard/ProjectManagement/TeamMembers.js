@@ -82,7 +82,7 @@ const TeamMembers = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -155,7 +155,7 @@ const TeamMembers = () => {
                         className="borRadius100"
                       />
                       <Box className="ml-1">
-                        <Typography as="h5" fontWeight="500" fontSize="13px">
+                        <Typography component="h5" fontWeight="500" fontSize="13px">
                           {team.name}
                         </Typography>
                         <Typography fontSize="13px">{team.userName}</Typography>

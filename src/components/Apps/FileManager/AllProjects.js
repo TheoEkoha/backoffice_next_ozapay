@@ -195,7 +195,7 @@ const AllProjects = () => {
                 }}
               >
                 <Image src={project.icon} alt="folder" width={56} height={52} />
-                <Typography as="h3" fontWeight="500" fontSize="14px" mt="10px">
+                <Typography component="h3" fontWeight="500" fontSize="14px" mt="10px">
                   {project.title}
                 </Typography>
               </Box>

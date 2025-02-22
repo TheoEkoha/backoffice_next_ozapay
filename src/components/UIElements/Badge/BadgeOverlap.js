@@ -26,7 +26,7 @@ const BadgeOverlap = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -37,16 +37,16 @@ const BadgeOverlap = () => {
         </Typography>
         
         <Stack spacing={3} direction="row">
-          <Badge color="danger" badgeContent=" ">
+          <Badge color="error" badgeContent=" ">
             {rectangle}
           </Badge>
-          <Badge color="danger" badgeContent=" " variant="dot">
+          <Badge color="error" badgeContent=" " variant="dot">
             {rectangle}
           </Badge>
-          <Badge color="danger" overlap="circular" badgeContent=" ">
+          <Badge color="error" overlap="circular" badgeContent=" ">
             {circle}
           </Badge>
-          <Badge color="danger" overlap="circular" badgeContent=" " variant="dot">
+          <Badge color="error" overlap="circular" badgeContent=" " variant="dot">
             {circle}
           </Badge>
         </Stack>

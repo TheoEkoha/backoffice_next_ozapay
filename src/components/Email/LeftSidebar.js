@@ -190,7 +190,7 @@ const LeftSidebar = () => {
               <i className="ri-error-warning-line"></i> Spam
               <Badge
                 badgeContent={4}
-                color="danger"
+                color="error"
                 sx={{
                   position: "relative",
                   top: "15px",

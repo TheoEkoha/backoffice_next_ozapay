@@ -40,7 +40,7 @@ const Trading = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -51,7 +51,7 @@ const Trading = () => {
 
           <Box>
             <Typography
-              as="h6"
+              component="h6"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,
@@ -180,14 +180,14 @@ const Trading = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Typography as="p">Estimated Rate</Typography>
+                  <Typography component="p">Estimated Rate</Typography>
 
-                  <Typography as="p">1 BTC ~ $34572.00</Typography>
+                  <Typography component="p">1 BTC ~ $34572.00</Typography>
                 </Box>
               </Grid>
 
               <Grid item xs={12}>
-                <Typography as="p">Transaction Fees (0.05%)</Typography>
+                <Typography component="p">Transaction Fees (0.05%)</Typography>
               </Grid>
 
               <Grid item xs={12}>
@@ -198,9 +198,9 @@ const Trading = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Typography as="p">Total</Typography>
+                  <Typography component="p">Total</Typography>
 
-                  <Typography as="p">72.00 BTC</Typography>
+                  <Typography component="p">72.00 BTC</Typography>
                 </Box>
               </Grid>
             </Grid>

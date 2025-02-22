@@ -70,7 +70,7 @@ const ProductDetailsContent = () => {
 
           <Grid item xs={12} md={12} lg={7} xl={7}>
             <Box>
-              <Typography as="h4" fontWeight="500" fontSize="18px" mb="10px">
+              <Typography component="h4" fontWeight="500" fontSize="18px" mb="10px">
                 Black T-Shirt Sleeve
               </Typography>
 
@@ -87,7 +87,7 @@ const ProductDetailsContent = () => {
                 <StarIcon sx={{ color: "#FFBC2B", fontSize: 18 }} />
                 <StarIcon sx={{ color: "#FFBC2B", fontSize: 18 }} />
 
-                <Typography as="h4" fontSize="13px" className="ml-1">
+                <Typography component="h4" fontSize="13px" className="ml-1">
                   5.0 (61 votes)
                 </Typography>
               </Box>

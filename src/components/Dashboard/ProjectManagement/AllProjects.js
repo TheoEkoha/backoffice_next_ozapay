@@ -48,7 +48,7 @@ const AllProjects = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -164,7 +164,7 @@ const AllProjects = () => {
                       height={25}
                     />
                     <Typography
-                      as="h5"
+                      component="h5"
                       fontWeight="500"
                       fontSize="13px"
                       className="ml-1"
@@ -254,7 +254,7 @@ const AllProjects = () => {
                       height={25}
                     />
                     <Typography
-                      as="h5"
+                      component="h5"
                       fontWeight="500"
                       fontSize="13px"
                       className="ml-1"
@@ -335,7 +335,7 @@ const AllProjects = () => {
                       height={25}
                     />
                     <Typography
-                      as="h5"
+                      component="h5"
                       fontWeight="500"
                       fontSize="13px"
                       className="ml-1"
@@ -416,7 +416,7 @@ const AllProjects = () => {
                       height={25}
                     />
                     <Typography
-                      as="h5"
+                      component="h5"
                       fontWeight="500"
                       fontSize="13px"
                       className="ml-1"
@@ -505,7 +505,7 @@ const AllProjects = () => {
                       height={25}
                     />
                     <Typography
-                      as="h5"
+                      component="h5"
                       fontWeight="500"
                       fontSize="13px"
                       className="ml-1"

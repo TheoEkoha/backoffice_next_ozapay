@@ -69,7 +69,7 @@ const MyPlanning = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 16,
               fontWeight: 500,
@@ -152,7 +152,7 @@ const MyPlanning = () => {
             />
 
             <Box className="ml-1">
-              <Typography as="h4" fontWeight={500} fontSize="13px">
+              <Typography component="h4" fontWeight={500} fontSize="13px">
                 {plan.title}
               </Typography>
               <Typography color="#A9A9C8;" fontSize="12px">

@@ -110,7 +110,7 @@ const CompletedTasks = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -188,9 +188,9 @@ const CompletedTasks = () => {
             <Typography color="#A9A9C8" mb={1}>
               Target
             </Typography>
-            <Typography fontWeight="500" fontSize="20px" as="h4">
+            <Typography fontWeight="500" fontSize="20px" component="h4">
               <ArrowDownwardIcon
-                color="danger"
+                color="error"
                 style={{ position: "relative", top: "3px" }}
               />{" "}
               20k
@@ -201,7 +201,7 @@ const CompletedTasks = () => {
             <Typography color="#A9A9C8" mb={1}>
               Last Week
             </Typography>
-            <Typography fontWeight="500" fontSize="20px" as="h4">
+            <Typography fontWeight="500" fontSize="20px" component="h4">
               <ArrowUpwardIcon
                 color="success"
                 style={{ position: "relative", top: "3px" }}
@@ -214,7 +214,7 @@ const CompletedTasks = () => {
             <Typography color="#A9A9C8" mb={1}>
               Last Month
             </Typography>
-            <Typography fontWeight="500" fontSize="20px" as="h4">
+            <Typography fontWeight="500" fontSize="20px" component="h4">
               <ArrowUpwardIcon
                 color="success"
                 style={{ position: "relative", top: "3px" }}

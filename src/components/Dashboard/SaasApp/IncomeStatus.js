@@ -44,10 +44,10 @@ const IncomeStatus = () => {
           </Box>
 
           <Box sx={{ textAlign: "right" }}>
-            <Typography as="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
+            <Typography component="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
               $31,570
             </Typography>
-            <Typography as="p">Income Status</Typography>
+            <Typography component="p">Income Status</Typography>
           </Box>
         </Box>
 
@@ -60,10 +60,10 @@ const IncomeStatus = () => {
               mb: "8px",
             }}
           >
-            <Typography as="p" sx={{ fontSize: 14, fontWeight: 500 }}>
+            <Typography component="p" sx={{ fontSize: 14, fontWeight: 500 }}>
               Income Target
             </Typography>
-            <Typography as="p">$180548.00</Typography>
+            <Typography component="p">$180548.00</Typography>
           </Box>
 
           <ProgressBar

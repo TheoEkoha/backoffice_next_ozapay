@@ -43,7 +43,7 @@ const Notification = () => {
           aria-expanded={open ? "true" : undefined}
           className="ml-2 for-dark-notification"
         >
-          <Badge color="danger" variant="dot">
+          <Badge color="error" variant="dot">
             <NotificationsActiveIcon color="action" />
           </Badge>
         </IconButton>

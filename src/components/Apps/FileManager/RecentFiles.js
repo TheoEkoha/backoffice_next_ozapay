@@ -123,7 +123,7 @@ const RecentFiles = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -229,7 +229,7 @@ const RecentFiles = () => {
                         height={22}
                       />
                       <Typography
-                        as="h5"
+                        component="h5"
                         fontWeight="500"
                         fontSize="13px"
                         className="ml-1"
@@ -279,7 +279,7 @@ const RecentFiles = () => {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />
@@ -375,7 +375,7 @@ const RecentFiles = () => {
                 <Grid container alignItems="center" spacing={1}>
                   <Grid item xs={12}>
                     <Typography
-                      as="h5"
+                      component="h5"
                       sx={{
                         fontWeight: "500",
                         fontSize: "14px",

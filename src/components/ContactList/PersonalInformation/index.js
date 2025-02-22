@@ -47,7 +47,7 @@ const PersonalInformation = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -58,7 +58,7 @@ const PersonalInformation = () => {
         </Box>
 
         <Box>
-          <Typography as="h4" fontWeight="500" fontSize="15px" mb={1}>
+          <Typography component="h4" fontWeight="500" fontSize="15px" mb={1}>
             About Me:
           </Typography>
 
@@ -78,7 +78,7 @@ const PersonalInformation = () => {
               key={info.title}
             >
               <Typography
-                as="h4"
+                component="h4"
                 fontWeight="500"
                 fontSize="14px"
                 width="100px"

@@ -45,7 +45,7 @@ const AllProjects = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -149,7 +149,7 @@ const AllProjects = () => {
               >
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="13px" 
                   >
@@ -222,7 +222,7 @@ const AllProjects = () => {
               >
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="13px" 
                   >
@@ -289,7 +289,7 @@ const AllProjects = () => {
               >
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="13px" 
                   >
@@ -356,7 +356,7 @@ const AllProjects = () => {
               >
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="13px" 
                   >
@@ -428,7 +428,7 @@ const AllProjects = () => {
               >
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="13px" 
                   >

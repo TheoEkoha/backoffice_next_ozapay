@@ -313,7 +313,7 @@ const BrowserUsedAndTrafficReports = () => {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -487,7 +487,7 @@ const BrowserUsedAndTrafficReports = () => {
                   >
                     {row.sessions}{" "}
                     <Typography
-                      as="span"
+                      component="span"
                       sx={{ color: "#A9A9C8", fontSize: "13px" }}
                     >
                       {row.sessionsProgress}
@@ -505,7 +505,7 @@ const BrowserUsedAndTrafficReports = () => {
                   >
                     {row.prevPeriod}{" "}
                     <Typography
-                      as="span"
+                      component="span"
                       sx={{ color: "#A9A9C8", fontSize: "13px" }}
                     >
                       {row.prevPeriodProgress}
@@ -524,7 +524,7 @@ const BrowserUsedAndTrafficReports = () => {
                   >
                     {row.transactions}{" "}
                     <Typography
-                      as="span"
+                      component="span"
                       sx={{ color: "#A9A9C8", fontSize: "13px" }}
                     >
                       {row.transactionsProgress}

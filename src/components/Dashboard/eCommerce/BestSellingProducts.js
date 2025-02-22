@@ -119,7 +119,7 @@ const BestSellingProducts = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 16,
               fontWeight: 500,
@@ -190,7 +190,7 @@ const BestSellingProducts = () => {
                             fontWeight: "500",
                             fontSize: "14px",
                           }}
-                          as="h5"
+                          component="h5"
                         >
                           {row.productName}
                         </Typography>

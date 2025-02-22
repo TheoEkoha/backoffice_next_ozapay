@@ -195,7 +195,7 @@ const AllAssets = () => {
                 }}
               >
                 <Image src={asset.icon} alt="folder" width={56} height={52} />
-                <Typography as="h3" fontWeight="500" fontSize="14px" mt="10px">
+                <Typography component="h3" fontWeight="500" fontSize="14px" mt="10px">
                   {asset.title}
                 </Typography>
               </Box>

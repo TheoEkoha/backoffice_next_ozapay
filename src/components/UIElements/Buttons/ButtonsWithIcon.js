@@ -25,7 +25,7 @@ const ButtonsWithIcon = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -131,7 +131,7 @@ const ButtonsWithIcon = () => {
           <Button 
             startIcon={<DeleteIcon sx={{ color: '#fff !important' }} />}
             variant="contained"
-            color="danger"
+            color="error"
             sx={{
               textTransform: 'capitalize',
               borderRadius: '10px',

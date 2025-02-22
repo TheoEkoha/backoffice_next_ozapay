@@ -164,7 +164,7 @@ export default function Page({ params: { lang } }) {
                 className="borRadius100"
               />
               <Typography
-                as="h4"
+                component="h4"
                 sx={{
                   fontSize: 16,
                   fontWeight: 500,

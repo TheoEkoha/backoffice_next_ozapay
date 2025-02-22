@@ -256,7 +256,7 @@ export default function MembersList({ params: { lang } }) {
             mb: "20px",
           }}
         >
-          <Typography as="h3" sx={{ fontSize: 18, fontWeight: 500 }}>
+          <Typography component="h3" sx={{ fontSize: 18, fontWeight: 500 }}>
             Users List
           </Typography>
 
@@ -305,7 +305,7 @@ export default function MembersList({ params: { lang } }) {
                   <TableCell align="center">{user.roles}</TableCell>
                   <TableCell align="center">{user.phone}</TableCell>
                   <TableCell align="right">
-                    <IconButton color="danger">
+                    <IconButton color="error">
                       <DeleteIcon />
                     </IconButton>
                     <IconButton color="primary" onClick={() => handleOpen(user)}>

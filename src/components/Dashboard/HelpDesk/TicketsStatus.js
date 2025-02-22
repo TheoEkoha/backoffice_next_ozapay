@@ -113,7 +113,7 @@ const TicketsStatus = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -188,12 +188,12 @@ const TicketsStatus = () => {
                 }}
               >
                 <Box>
-                  <Typography as="p" mb="3px">
+                  <Typography component="p" mb="3px">
                     New Tickets
                   </Typography>
 
                   <Typography
-                    as="h3"
+                    component="h3"
                     sx={{
                       fontSize: 18,
                       fontWeight: 500,
@@ -234,12 +234,12 @@ const TicketsStatus = () => {
                 }}
               >
                 <Box>
-                  <Typography as="p" mb="3px">
+                  <Typography component="p" mb="3px">
                     Solved Tickets
                   </Typography>
 
                   <Typography
-                    as="h3"
+                    component="h3"
                     sx={{
                       fontSize: 18,
                       fontWeight: 500,

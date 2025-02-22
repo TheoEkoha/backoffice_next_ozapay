@@ -61,7 +61,7 @@ const ChatBoxThree = () => {
               className="borRadius100"
             />
             <Box className="ml-1">
-              <Typography as="h5" fontWeight="500">
+              <Typography component="h5" fontWeight="500">
                 Bernard Langley
               </Typography>
               <Typography fontSize="12px" position="relative">

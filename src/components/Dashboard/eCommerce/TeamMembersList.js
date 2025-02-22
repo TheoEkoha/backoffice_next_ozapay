@@ -288,7 +288,7 @@ export default function TeamMembersList() {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -367,7 +367,7 @@ export default function TeamMembersList() {
                             fontWeight: "500",
                             fontSize: "14px",
                           }}
-                          as="h5"
+                          component="h5"
                         >
                           {row.name}
                         </Typography>

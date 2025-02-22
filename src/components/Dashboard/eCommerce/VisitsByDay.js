@@ -79,7 +79,7 @@ const VisitsByDay = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -89,7 +89,7 @@ const VisitsByDay = () => {
           </Typography>
 
           <Typography
-            as="p"
+            component="p"
             sx={{
               fontSize: 14,
             }}

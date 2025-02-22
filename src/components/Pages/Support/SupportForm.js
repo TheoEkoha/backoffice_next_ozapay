@@ -31,7 +31,7 @@ export default function SupportForm() {
       >
         <Grid item xs={12} md={12} lg={12} xl={12}>
           <Box>
-            <Typography as="h1" fontSize="28px" fontWeight="700" mb="5px">
+            <Typography component="h1" fontSize="28px" fontWeight="700" mb="5px">
               Contact with Us
             </Typography>
 

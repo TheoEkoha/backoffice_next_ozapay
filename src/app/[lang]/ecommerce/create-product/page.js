@@ -53,14 +53,14 @@ export default function Page({ params: { lang } }) {
           }}
           className="bg-black"
         >
-          <Typography as="h4" fontWeight="500" fontSize="18px" mb="10px">
+          <Typography component="h4" fontWeight="500" fontSize="18px" mb="10px">
             Create Product
           </Typography>
 
           <Grid container alignItems="center" spacing={2}>
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -85,7 +85,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -110,7 +110,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -139,7 +139,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -165,7 +165,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -191,7 +191,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -216,7 +216,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -239,7 +239,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -264,7 +264,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -289,7 +289,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -312,7 +312,7 @@ export default function Page({ params: { lang } }) {
 
             <Grid item xs={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",

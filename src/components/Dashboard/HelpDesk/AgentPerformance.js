@@ -231,7 +231,7 @@ export default function AgentPerformance() {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -331,7 +331,7 @@ export default function AgentPerformance() {
                             fontWeight: "500",
                             fontSize: "14px",
                           }}
-                          as="h5"
+                          component="h5"
                         >
                           {row.name}
                         </Typography>
@@ -405,7 +405,7 @@ export default function AgentPerformance() {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger mr-2px"
                           sx={{ background: '#ece5e5' }} 
                         >

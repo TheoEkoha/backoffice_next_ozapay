@@ -34,7 +34,7 @@ const ForgotPasswordForm = () => {
         >
           <Grid item xs={12} md={12} lg={12} xl={12}>
             <Box>
-              <Typography as="h1" fontSize="28px" fontWeight="700" mb="5px">
+              <Typography component="h1" fontSize="28px" fontWeight="700" mb="5px">
                 Forgot Password?{" "}
                 <Image
                   src="/images/favicon.png"
@@ -107,7 +107,7 @@ const ForgotPasswordForm = () => {
                 </Button>
               </Box>
 
-              <Box as="div" textAlign="center" mt="20px">
+              <Box component="div" textAlign="center" mt="20px">
                 <Link
                   href="/authentication/sign-in/"
                   className="primaryColor text-decoration-none"

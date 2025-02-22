@@ -84,7 +84,7 @@ export default function ControlPanelModal() {
             <Button
               onClick={handleToggleSearchModal}
               variant="contained"
-              color="danger"
+              color="error"
               sx={{
                 textTransform: "capitalize",
                 color: "#fff !important"

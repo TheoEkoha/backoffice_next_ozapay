@@ -90,7 +90,7 @@ const PricingPlanStyle2 = () => {
   return (
     <>
       <Typography
-        as="h3"
+        component="h3"
         sx={{
           fontSize: 20,
           fontWeight: 500,
@@ -130,7 +130,7 @@ const PricingPlanStyle2 = () => {
               >
                 <Box>
                   <Typography
-                    as="h3"
+                    component="h3"
                     sx={{
                       fontSize: 18,
                       fontWeight: 500,
@@ -151,7 +151,7 @@ const PricingPlanStyle2 = () => {
               </Box>
 
               <Typography
-                as="h3"
+                component="h3"
                 sx={{
                   fontSize: 32,
                   fontWeight: 700,

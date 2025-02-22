@@ -259,7 +259,7 @@ export default function NotificationTable() {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 16,
               fontWeight: 500,

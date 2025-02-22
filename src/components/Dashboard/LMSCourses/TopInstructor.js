@@ -80,7 +80,7 @@ const TopInstructor = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -140,7 +140,7 @@ const TopInstructor = () => {
                   />
 
                   <Box className="ml-1">
-                    <Typography as="h4" fontWeight={500} fontSize="13px">
+                    <Typography component="h4" fontWeight={500} fontSize="13px">
                       {instructor.name}
                     </Typography>
                     <Typography color="#A9A9C8;" fontSize="12px">

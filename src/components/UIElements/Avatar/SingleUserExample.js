@@ -22,7 +22,7 @@ const SingleUserExample = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -54,7 +54,7 @@ const SingleUserExample = () => {
             />
 
             <Box className="ml-12px">
-              <Typography as="h3" fontWeight="500" fontSize="15px">
+              <Typography component="h3" fontWeight="500" fontSize="15px">
                 Andrew Burns
               </Typography>
 

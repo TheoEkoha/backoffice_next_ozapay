@@ -121,7 +121,7 @@ export default function Page({ params: { lang } }) {
               />
 
               <Typography
-                as="h4"
+                component="h4"
                 fontWeight="500"
                 fontSize="17px"
                 mt="10px"
@@ -158,7 +158,7 @@ export default function Page({ params: { lang } }) {
                 <Box>
                   <Typography fontSize="13px">Item Stock</Typography>
 
-                  <Typography as="h4" fontWeight="500" fontSize="17px" mt="5px">
+                  <Typography component="h4" fontWeight="500" fontSize="17px" mt="5px">
                     {seller.itemStock}
                   </Typography>
                 </Box>
@@ -166,7 +166,7 @@ export default function Page({ params: { lang } }) {
                 <Box>
                   <Typography fontSize="13px">Wallet Balance</Typography>
 
-                  <Typography as="h4" fontWeight="500" fontSize="17px" mt="5px">
+                  <Typography component="h4" fontWeight="500" fontSize="17px" mt="5px">
                     {seller.walletBalance}
                   </Typography>
                 </Box>

@@ -21,7 +21,7 @@ const Impressions = () => {
         </Typography>
 
         <Typography
-          as="h2"
+          component="h2"
           sx={{ color: "#fff !important", fontSize: 26, fontWeight: 700, mb: "5px" }}
         >
           $12,875{" "}

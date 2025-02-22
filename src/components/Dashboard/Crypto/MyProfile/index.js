@@ -43,7 +43,7 @@ const MyProfile = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -119,7 +119,7 @@ const MyProfile = () => {
               <img src="/images/bitcoin2.png" alt="bitcoin" />
               <Box sx={{ ml: "10px" }}>
                 <Typography
-                  as="h5"
+                  component="h5"
                   sx={{
                     fontSize: 15,
                     fontWeight: 500,
@@ -128,15 +128,15 @@ const MyProfile = () => {
                   Bitcoin
                 </Typography>
 
-                <Typography as="span">(BTC) 3.8%</Typography>
+                <Typography component="span">(BTC) 3.8%</Typography>
               </Box>
             </Box>
 
             <Box textAlign="right">
-              <Typography as="p" fontWeight="500">
+              <Typography component="p" fontWeight="500">
                 BTC 0.00251068
               </Typography>
-              <Typography as="p" fontWeight="500" color="#00B69B">
+              <Typography component="p" fontWeight="500" color="#00B69B">
                 $13,6218602
               </Typography>
             </Box>
@@ -153,7 +153,7 @@ const MyProfile = () => {
               <img src="/images/ethereum.png" alt="ethereum" />
               <Box sx={{ ml: "10px" }}>
                 <Typography
-                  as="h5"
+                  component="h5"
                   sx={{
                     fontSize: 15,
                     fontWeight: 500,
@@ -162,15 +162,15 @@ const MyProfile = () => {
                   Ethereum
                 </Typography>
 
-                <Typography as="span">(ETH) 0.25%</Typography>
+                <Typography component="span">(ETH) 0.25%</Typography>
               </Box>
             </Box>
 
             <Box textAlign="right">
-              <Typography as="p" fontWeight="500">
+              <Typography component="p" fontWeight="500">
                 ETH 0.00251068
               </Typography>
-              <Typography as="p" fontWeight="500" color="#00B69B">
+              <Typography component="p" fontWeight="500" color="#00B69B">
                 $13,6218602
               </Typography>
             </Box>
@@ -187,7 +187,7 @@ const MyProfile = () => {
               <img src="/images/comp-bidr.png" alt="comp-bidr" />
               <Box sx={{ ml: "10px" }}>
                 <Typography
-                  as="h5"
+                  component="h5"
                   sx={{
                     fontSize: 15,
                     fontWeight: 500,
@@ -196,15 +196,15 @@ const MyProfile = () => {
                   Comp Bidr
                 </Typography>
 
-                <Typography as="span">(BDR) 3.8%</Typography>
+                <Typography component="span">(BDR) 3.8%</Typography>
               </Box>
             </Box>
 
             <Box textAlign="right">
-              <Typography as="p" fontWeight="500">
+              <Typography component="p" fontWeight="500">
                 BDR 0.001068
               </Typography>
-              <Typography as="p" fontWeight="500" color="#00B69B">
+              <Typography component="p" fontWeight="500" color="#00B69B">
                 $13,6218602
               </Typography>
             </Box>
@@ -221,7 +221,7 @@ const MyProfile = () => {
               <img src="/images/matic2.png" alt="matic2" />
               <Box sx={{ ml: "10px" }}>
                 <Typography
-                  as="h5"
+                  component="h5"
                   sx={{
                     fontSize: 15,
                     fontWeight: 500,
@@ -230,15 +230,15 @@ const MyProfile = () => {
                   Matic
                 </Typography>
 
-                <Typography as="span">(MTC) 3.02%</Typography>
+                <Typography component="span">(MTC) 3.02%</Typography>
               </Box>
             </Box>
 
             <Box textAlign="right">
-              <Typography as="p" fontWeight="500">
+              <Typography component="p" fontWeight="500">
                 MTC 0.00251068
               </Typography>
-              <Typography as="p" fontWeight="500" color="#00B69B">
+              <Typography component="p" fontWeight="500" color="#00B69B">
                 $13,6218602
               </Typography>
             </Box>
@@ -255,7 +255,7 @@ const MyProfile = () => {
               <img src="/images/litecoin.png" alt="litecoin" />
               <Box sx={{ ml: "10px" }}>
                 <Typography
-                  as="h5"
+                  component="h5"
                   sx={{
                     fontSize: 15,
                     fontWeight: 500,
@@ -264,15 +264,15 @@ const MyProfile = () => {
                   Litecoin
                 </Typography>
 
-                <Typography as="span">(LTC) 1.8%</Typography>
+                <Typography component="span">(LTC) 1.8%</Typography>
               </Box>
             </Box>
 
             <Box textAlign="right">
-              <Typography as="p" fontWeight="500">
+              <Typography component="p" fontWeight="500">
                 LTC 0.00251068
               </Typography>
-              <Typography as="p" fontWeight="500" color="#00B69B">
+              <Typography component="p" fontWeight="500" color="#00B69B">
                 $13,6218602
               </Typography>
             </Box>

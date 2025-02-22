@@ -34,7 +34,7 @@ export default function Page({ params: { lang } }) {
               }}
             >
               <Typography
-                as="h1"
+                component="h1"
                 sx={{
                   fontSize: 17,
                   fontWeight: 500,
@@ -86,7 +86,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -151,7 +151,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -218,7 +218,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -277,7 +277,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -334,7 +334,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -399,7 +399,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -455,7 +455,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -511,7 +511,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"
@@ -567,7 +567,7 @@ export default function Page({ params: { lang } }) {
 
                       <Box className="ml-1">
                         <Typography
-                          as="h4"
+                          component="h4"
                           fontSize="13px"
                           fontWeight="500"
                           mb="5px"

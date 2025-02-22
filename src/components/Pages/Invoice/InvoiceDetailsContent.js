@@ -33,7 +33,7 @@ const InvoiceDetailsContent = () => {
           {/* Invoice Details */}
           <Box>
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 18,
                 fontWeight: 500,
@@ -46,7 +46,7 @@ const InvoiceDetailsContent = () => {
             {/* Billed To: */}
             <Box mb={3}>
               <Typography
-                as="h3"
+                component="h3"
                 sx={{
                   fontSize: 15,
                   fontWeight: 500,
@@ -97,7 +97,7 @@ const InvoiceDetailsContent = () => {
             {/* Payment : */}
             <Box mb={3}>
               <Typography
-                as="h3"
+                component="h3"
                 sx={{
                   fontSize: 15,
                   fontWeight: 500,
@@ -158,7 +158,7 @@ const InvoiceDetailsContent = () => {
           {/* Invoice id */}
           <Box align="end">
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 18,
                 fontWeight: 500,
@@ -171,7 +171,7 @@ const InvoiceDetailsContent = () => {
             {/* Shipped To: */}
             <Box mb={3}>
               <Typography
-                as="h3"
+                component="h3"
                 sx={{
                   fontSize: 15,
                   fontWeight: 500,
@@ -222,7 +222,7 @@ const InvoiceDetailsContent = () => {
             {/* Order Date : */}
             <Box mb={3}>
               <Typography
-                as="h3"
+                component="h3"
                 sx={{
                   fontSize: 15,
                   fontWeight: 500,
@@ -247,7 +247,7 @@ const InvoiceDetailsContent = () => {
 
         {/* Order Summary */}
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 16,
             fontWeight: 500,

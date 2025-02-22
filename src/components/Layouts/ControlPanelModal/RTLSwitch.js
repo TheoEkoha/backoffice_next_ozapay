@@ -20,7 +20,7 @@ const RTLSwitch = () => {
 		<>
 			<div className={styles.darkModeBox}>
 				<Typography
-					as="h2"
+					component="h2"
 					sx={{
 						color: "#000 !important",
 						fontSize: 16,

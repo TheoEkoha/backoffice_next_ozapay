@@ -44,10 +44,10 @@ const TotalOrders = () => {
           </Box>
 
           <Box sx={{ textAlign: "right" }}>
-            <Typography as="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
+            <Typography component="h1" sx={{ fontSize: 28, fontWeight: 700 }}>
               40,178
             </Typography>
-            <Typography as="p">Total Orders</Typography>
+            <Typography component="p">Total Orders</Typography>
           </Box>
         </Box>
 
@@ -60,10 +60,10 @@ const TotalOrders = () => {
               mb: "8px",
             }}
           >
-            <Typography as="p" sx={{ fontSize: 14, fontWeight: 500 }}>
+            <Typography component="p" sx={{ fontSize: 14, fontWeight: 500 }}>
               Order Target
             </Typography>
-            <Typography as="p">30,40548.00</Typography>
+            <Typography component="p">30,40548.00</Typography>
           </Box>
 
           <ProgressBar

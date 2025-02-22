@@ -96,7 +96,7 @@ const Messages = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 17,
               fontWeight: 500,
@@ -204,7 +204,7 @@ const Messages = () => {
 
                   <Box className="ml-1">
                     <Typography
-                      as="h4"
+                      component="h4"
                       fontSize="13px"
                       fontWeight="500"
                       mb="5px"

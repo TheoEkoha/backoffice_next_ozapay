@@ -61,7 +61,7 @@ const ChatBoxTwo = () => {
               className="borRadius100"
             />
             <Box className="ml-1">
-              <Typography as="h5" fontWeight="500">
+              <Typography component="h5" fontWeight="500">
                 Nunez Faulkner
               </Typography>
               <Typography fontSize="12px" position="relative">

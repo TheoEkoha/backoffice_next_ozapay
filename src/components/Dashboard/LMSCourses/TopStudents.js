@@ -79,7 +79,7 @@ const TopStudents = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 17,
               fontWeight: 500,
@@ -139,7 +139,7 @@ const TopStudents = () => {
                   />
 
                   <Box className="ml-1">
-                    <Typography as="h4" fontWeight={500} fontSize="12.5px">
+                    <Typography component="h4" fontWeight={500} fontSize="12.5px">
                       {student.name}
                     </Typography>
                     <Typography color="#A9A9C8;" fontSize="12px">

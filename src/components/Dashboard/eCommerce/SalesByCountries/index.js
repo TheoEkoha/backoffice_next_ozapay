@@ -59,7 +59,7 @@ const SalesByCountries = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -133,7 +133,7 @@ const SalesByCountries = () => {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{ fontWeight: 500, fontSize: 14, color: "#5B5B98" }}
             >
               Canada
@@ -153,7 +153,7 @@ const SalesByCountries = () => {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{ fontWeight: 500, fontSize: 14, color: "#5B5B98" }}
             >
               Russia
@@ -173,7 +173,7 @@ const SalesByCountries = () => {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{ fontWeight: 500, fontSize: 14, color: "#5B5B98" }}
             >
               Greenland
@@ -193,7 +193,7 @@ const SalesByCountries = () => {
             }}
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{ fontWeight: 500, fontSize: 14, color: "#5B5B98" }}
             >
               USA

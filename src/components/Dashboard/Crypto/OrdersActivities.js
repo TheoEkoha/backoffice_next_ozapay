@@ -38,7 +38,7 @@ const OrdersActivities = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -182,7 +182,7 @@ const OrdersActivities = () => {
                     <Avatar src="/images/bitcoin3.png" alt="bitcoin" />
                   </AvatarGroup>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px" 
                     className="ml-10px"
@@ -195,7 +195,7 @@ const OrdersActivities = () => {
                 </TableCell>
 
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
-                  <Typography as="p" className="successColor" fontSize="14px">
+                  <Typography component="p" className="successColor" fontSize="14px">
                     +2.48%
                   </Typography>
                 </TableCell>
@@ -274,7 +274,7 @@ const OrdersActivities = () => {
                     <Avatar src="/images/ethereum2.png" alt="ethereum" />
                   </AvatarGroup>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -287,7 +287,7 @@ const OrdersActivities = () => {
                 </TableCell>
 
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
-                  <Typography as="p" className="dangerColor" fontSize="14px">
+                  <Typography component="p" className="dangerColor" fontSize="14px">
                     -1.11%
                   </Typography>
                 </TableCell>
@@ -366,7 +366,7 @@ const OrdersActivities = () => {
                     <Avatar src="/images/dash.png" alt="dash" />
                   </AvatarGroup>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -379,7 +379,7 @@ const OrdersActivities = () => {
                 </TableCell>
 
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
-                  <Typography as="p" className="successColor" fontSize="14px">
+                  <Typography component="p" className="successColor" fontSize="14px">
                     +0.32%
                   </Typography>
                 </TableCell>
@@ -458,7 +458,7 @@ const OrdersActivities = () => {
                     <Avatar src="/images/litecoin2.png" alt="litecoin" />
                   </AvatarGroup>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -471,7 +471,7 @@ const OrdersActivities = () => {
                 </TableCell>
 
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
-                  <Typography as="p" className="dangerColor" fontSize="14px">
+                  <Typography component="p" className="dangerColor" fontSize="14px">
                     -3.06%
                   </Typography>
                 </TableCell>
@@ -550,7 +550,7 @@ const OrdersActivities = () => {
                     <Avatar src="/images/dollar.png" alt="dollar" />
                   </AvatarGroup>
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -563,7 +563,7 @@ const OrdersActivities = () => {
                 </TableCell>
 
                 <TableCell sx={{ borderBottom: "1px solid #F7FAFF" }}>
-                  <Typography as="p" className="successColor" fontSize="14px">
+                  <Typography component="p" className="successColor" fontSize="14px">
                     +1.11%
                   </Typography>
                 </TableCell>

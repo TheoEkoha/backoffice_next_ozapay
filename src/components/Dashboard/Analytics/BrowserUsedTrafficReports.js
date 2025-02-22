@@ -254,7 +254,7 @@ const BrowserUsedTrafficReports = () => {
           }}
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -405,7 +405,7 @@ const BrowserUsedTrafficReports = () => {
                     }}>
                       {row.users} 
                       <Typography
-                        as="span"
+                        component="span"
                         sx={{ color: "#A9A9C8", fontSize: "13px" }}
                       >
                         {row.usersProgress}%
@@ -432,7 +432,7 @@ const BrowserUsedTrafficReports = () => {
                   >
                     {row.transactions}{" "}
                     <Typography
-                      as="span"
+                      component="span"
                       sx={{ color: "#A9A9C8", fontSize: "13px" }}
                     >
                       {row.transactionsProgress}

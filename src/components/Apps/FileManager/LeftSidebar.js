@@ -84,7 +84,7 @@ const LeftSidebar = () => {
         }}
       >
         <Typography
-          as="h1"
+          component="h1"
           sx={{
             fontSize: 17,
             fontWeight: 500,

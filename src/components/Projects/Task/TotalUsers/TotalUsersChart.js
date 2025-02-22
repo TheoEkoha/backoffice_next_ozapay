@@ -64,10 +64,10 @@ const TotalUsersChart = () => {
           <Typography 
             fontWeight="500" 
             fontSize="20px" 
-            as="h4"
+            component="h4"
           >
             <ArrowDownwardIcon 
-              color="danger" 
+              color="error" 
               style={{ 
                 position: 'relative', 
                 top: '3px' 
@@ -83,7 +83,7 @@ const TotalUsersChart = () => {
           <Typography 
             fontWeight="500" 
             fontSize="20px" 
-            as="h4"
+            component="h4"
           >
             <ArrowUpwardIcon 
               color="success" 
@@ -102,10 +102,10 @@ const TotalUsersChart = () => {
           <Typography 
             fontWeight="500" 
             fontSize="20px" 
-            as="h4"
+            component="h4"
           >
             <ArrowDownwardIcon 
-              color="danger" 
+              color="error" 
               style={{ 
                 position: 'relative', 
                 top: '3px' 

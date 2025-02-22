@@ -163,7 +163,7 @@ const ImportantFiles = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -269,7 +269,7 @@ const ImportantFiles = () => {
                         height={22}
                       />
                       <Typography
-                        as="h5"
+                        component="h5"
                         fontWeight="500"
                         fontSize="13px"
                         className="ml-1"
@@ -319,7 +319,7 @@ const ImportantFiles = () => {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />
@@ -415,7 +415,7 @@ const ImportantFiles = () => {
                 <Grid container alignItems="center" spacing={1}>
                   <Grid item xs={12}>
                     <Typography
-                      as="h5"
+                      component="h5"
                       sx={{
                         fontWeight: "500",
                         fontSize: "14px",

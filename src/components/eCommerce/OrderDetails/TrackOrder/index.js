@@ -44,7 +44,7 @@ const TrackOrder = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 16,
             fontWeight: 500,
@@ -64,7 +64,7 @@ const TrackOrder = () => {
         >
           <Box>
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,
@@ -86,7 +86,7 @@ const TrackOrder = () => {
 
           <Box>
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 14,
                 fontWeight: 500,

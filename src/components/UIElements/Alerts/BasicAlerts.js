@@ -19,7 +19,7 @@ const BasicAlerts = () => {
         className="card-dark-bg"
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,

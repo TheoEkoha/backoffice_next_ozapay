@@ -139,7 +139,7 @@ const MyDrive = () => {
                 }}
               >
                 <Image src={dInfo.icon} alt="folder" width={56} height={52} />
-                <Typography as="h3" fontWeight="500" fontSize="14px" mt="10px">
+                <Typography component="h3" fontWeight="500" fontSize="14px" mt="10px">
                   {dInfo.title}
                 </Typography>
               </Box>

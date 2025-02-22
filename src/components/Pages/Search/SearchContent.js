@@ -17,7 +17,7 @@ export default function SearchContent() {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 16,
             fontWeight: 500,
@@ -41,7 +41,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -65,7 +65,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -89,7 +89,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -113,7 +113,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -137,7 +137,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -161,7 +161,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 
@@ -185,7 +185,7 @@ export default function SearchContent() {
             className="dark-border"
           >
             <Typography
-              as="h3"
+              component="h3"
               sx={{
                 fontSize: 16,
                 fontWeight: 500, 

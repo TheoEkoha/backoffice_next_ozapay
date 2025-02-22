@@ -41,7 +41,7 @@ export default function FullScreenDialogs() {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,

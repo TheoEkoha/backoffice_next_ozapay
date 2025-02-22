@@ -18,7 +18,7 @@ const DefaultButtons = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -118,7 +118,7 @@ const DefaultButtons = () => {
 
           <Button 
             variant="contained"
-            color="danger"
+            color="error"
             sx={{
               textTransform: 'capitalize',
               borderRadius: '10px',

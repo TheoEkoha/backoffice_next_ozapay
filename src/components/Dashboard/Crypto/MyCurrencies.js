@@ -38,7 +38,7 @@ const MyCurrencies = () => {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -175,7 +175,7 @@ const MyCurrencies = () => {
                   />
 
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -196,7 +196,7 @@ const MyCurrencies = () => {
                   align="center"
                 >
                   <Typography
-                    as="p"
+                    component="p"
                     className="successColor"
                     fontSize="14px"
                     display="flex"
@@ -264,7 +264,7 @@ const MyCurrencies = () => {
                   />
 
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -285,7 +285,7 @@ const MyCurrencies = () => {
                   align="center"
                 >
                   <Typography
-                    as="p"
+                    component="p"
                     className="dangerColor"
                     fontSize="14px"
                     display="flex"
@@ -353,7 +353,7 @@ const MyCurrencies = () => {
                   />
 
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -374,7 +374,7 @@ const MyCurrencies = () => {
                   align="center"
                 >
                   <Typography
-                    as="p"
+                    component="p"
                     className="successColor"
                     fontSize="14px"
                     display="flex"
@@ -442,7 +442,7 @@ const MyCurrencies = () => {
                   />
 
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -463,7 +463,7 @@ const MyCurrencies = () => {
                   align="center"
                 >
                   <Typography
-                    as="p"
+                    component="p"
                     className="successColor"
                     fontSize="14px"
                     display="flex"
@@ -531,7 +531,7 @@ const MyCurrencies = () => {
                   />
 
                   <Typography
-                    as="h5"
+                    component="h5"
                     fontWeight="500"
                     fontSize="15px"
                     className="ml-10px"
@@ -552,7 +552,7 @@ const MyCurrencies = () => {
                   align="center"
                 >
                   <Typography
-                    as="p"
+                    component="p"
                     className="dangerColor"
                     fontSize="14px"
                     display="flex"

@@ -81,7 +81,7 @@ const CourseCompletionList = () => {
             )}
           </Box>
           <Box>
-            <Typography as="h3" fontSize="14px" fontWeight="500">
+            <Typography component="h3" fontSize="14px" fontWeight="500">
               Data With Python
             </Typography>
             <Typography fontSize="13px" color="#A9A9C8">
@@ -129,7 +129,7 @@ const CourseCompletionList = () => {
             )}
           </Box>
           <Box>
-            <Typography as="h3" fontSize="14px" fontWeight="500">
+            <Typography component="h3" fontSize="14px" fontWeight="500">
               Code Foundation
             </Typography>
             <Typography fontSize="13px" color="#A9A9C8">
@@ -177,7 +177,7 @@ const CourseCompletionList = () => {
             )}
           </Box>
           <Box>
-            <Typography as="h3" fontSize="14px" fontWeight="500">
+            <Typography component="h3" fontSize="14px" fontWeight="500">
               Styling With CSS
             </Typography>
             <Typography fontSize="13px" color="#A9A9C8">
@@ -225,7 +225,7 @@ const CourseCompletionList = () => {
             )}
           </Box>
           <Box>
-            <Typography as="h3" fontSize="14px" fontWeight="500">
+            <Typography component="h3" fontSize="14px" fontWeight="500">
               Code Learn
             </Typography>
             <Typography fontSize="13px" color="#A9A9C8">

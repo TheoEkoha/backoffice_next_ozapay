@@ -338,7 +338,7 @@ export default function CustomersDetails() {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -437,7 +437,7 @@ export default function CustomersDetails() {
                       />
                       <Box className="ml-10px">
                         <Typography
-                          as="h4"
+                          component="h4"
                           sx={{
                             fontWeight: "500",
                             fontSize: "13.5px",
@@ -517,7 +517,7 @@ export default function CustomersDetails() {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />

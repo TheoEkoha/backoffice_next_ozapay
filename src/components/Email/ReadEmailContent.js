@@ -50,7 +50,7 @@ export default function ReadEmailContent() {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 15,
               fontWeight: 500,

@@ -18,7 +18,7 @@ const OutlineButtons = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -109,7 +109,7 @@ const OutlineButtons = () => {
 
           <Button 
             variant="outlined"
-            color="danger"
+            color="error"
             sx={{
               textTransform: 'capitalize',
               borderRadius: '10px',

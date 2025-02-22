@@ -27,6 +27,7 @@ interface EditUserModalProps {
   onClose: () => void;
   setRefresh: (boolean) => void;
   selectedUser: UserDocument | null;
+  children?: React.ReactNode; // Ajoute cette ligne
 }
 
 

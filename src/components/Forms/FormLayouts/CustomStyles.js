@@ -41,7 +41,7 @@ const CustomStyles = () => {
         }}
       >
         <Typography
-          as="h3"
+          component="h3"
           sx={{
             fontSize: 18,
             fontWeight: 500,
@@ -55,7 +55,7 @@ const CustomStyles = () => {
           <Grid container alignItems="center" spacing={2}>
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -79,7 +79,7 @@ const CustomStyles = () => {
 
             <Grid item xs={12} md={12} lg={6}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",
@@ -103,7 +103,7 @@ const CustomStyles = () => {
   
             <Grid item xs={12} md={12} lg={12}>
               <Typography
-                as="h5"
+                component="h5"
                 sx={{
                   fontWeight: "500",
                   fontSize: "14px",

@@ -413,7 +413,7 @@ export default function User({ params: { lang } }) {
           className="for-dark-bottom-border"
         >
           <Typography
-            as="h3"
+            component="h3"
             sx={{
               fontSize: 18,
               fontWeight: 500,
@@ -533,7 +533,7 @@ export default function User({ params: { lang } }) {
                       />
                       <Box>
                         <Typography
-                          as="h4"
+                          component="h4"
                           sx={{
                             fontWeight: "500",
                             fontSize: "13.5px",
@@ -616,7 +616,7 @@ export default function User({ params: { lang } }) {
                         <IconButton
                           aria-label="remove"
                           size="small"
-                          color="danger"
+                          color="error"
                           className="danger"
                         >
                           <DeleteIcon fontSize="inherit" />
@@ -720,7 +720,7 @@ export default function User({ params: { lang } }) {
               <Grid container alignItems="center" spacing={2}>
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",
@@ -746,7 +746,7 @@ export default function User({ params: { lang } }) {
 
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",
@@ -772,7 +772,7 @@ export default function User({ params: { lang } }) {
 
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",
@@ -798,7 +798,7 @@ export default function User({ params: { lang } }) {
 
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",
@@ -824,7 +824,7 @@ export default function User({ params: { lang } }) {
 
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",
@@ -850,7 +850,7 @@ export default function User({ params: { lang } }) {
 
                 <Grid item xs={12} md={12} lg={6}>
                   <Typography
-                    as="h5"
+                    component="h5"
                     sx={{
                       fontWeight: "500",
                       fontSize: "14px",

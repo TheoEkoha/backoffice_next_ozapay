@@ -51,7 +51,7 @@ const Ratings = () => {
                 color: "#260944",
                 mb: "5px",
               }}
-              as="h3"
+              component="h3"
             >
               8.14k{" "}
               <Typography
