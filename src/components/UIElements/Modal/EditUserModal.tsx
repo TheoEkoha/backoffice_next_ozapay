@@ -69,7 +69,7 @@ const EditUserModal: React.FC<EditUserModalProps> = ({ open, onClose, selectedUs
    // ⚠️ Ajoute un petit délai pour s'assurer que le toast ne bloque pas la mise à jour
     setTimeout(() => {
       setRefresh(true);
-    }, 100);
+    }, 250);
 
     onClose(); // Fermer la modal après la mise à jour$
   };

@@ -38,6 +38,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
 import {UserDocument} from "../../api/users/users.model"
 import EditUserModal from "../../../components/UIElements/Modal/EditUserModal";
+import { SearchFormUser } from "../../../components/Apps/User/SearchFormUser";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -50,6 +51,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
+
 
 const style = {
   position: "absolute",
@@ -97,6 +99,7 @@ BootstrapDialogTitle.propTypes = {
 function MembersLists(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
+
 
   const handleFirstPageButtonClick = (event) => {
     onPageChange(event, 0);
@@ -183,7 +186,23 @@ export default function MembersList({ params: { lang } }) {
     setValue("roles", user.roles);
     setValue("phone", user.phone);
     setOpen(true);
-    console.log("-user ", user)
+  };
+
+  const [filteredUsers, setFilteredUsers] = useState(users["hydra:member"]);
+
+  useEffect(() => {
+    setFilteredUsers(users["hydra:member"]); // Réinitialiser à tous les utilisateurs au départ
+  }, [users]);
+
+  const handleSearch = (searchTerm) => {
+    const results = users["hydra:member"].filter(user =>
+      user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredUsers(results);
+    setPage(0);
   };
 
 
@@ -207,7 +226,7 @@ export default function MembersList({ params: { lang } }) {
   }, [refresh]); // Le tableau vide [] signifie que l'effet ne s'exécute qu'une seule fois
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - users["hydra:member"].length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - filteredUsers?.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -276,6 +295,9 @@ export default function MembersList({ params: { lang } }) {
           </Button>
         </Box>
 
+            {/* Barre de recherche */}
+            <SearchFormUser onSearch={handleSearch} />
+
         <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
           <Table sx={{ minWidth: 850 }} aria-label="custom pagination table">
             <TableHead sx={{ background: "#F7FAFF" }}>
@@ -286,14 +308,15 @@ export default function MembersList({ params: { lang } }) {
                 <TableCell align="right">E-mail</TableCell>
                 <TableCell align="right">Roles</TableCell>
                 <TableCell align="right">Numéro</TableCell>
+                <TableCell align="right">Code</TableCell>
                 <TableCell align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
 
             <TableBody>
               {(rowsPerPage > 0
-                ? users["hydra:member"]?.sort((a, b) => a.id - b.id)?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                : users["hydra:member"]?.sort((a, b) => a.id - b.id)
+                ? filteredUsers?.sort((a, b) => a.id - b.id)?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                : filteredUsers?.sort((a, b) => a.id - b.id)
               )?.map((user) => (
                 <TableRow key={user.id}>
                   <TableCell>
@@ -304,6 +327,7 @@ export default function MembersList({ params: { lang } }) {
                   <TableCell align="center">{user.email}</TableCell>
                   <TableCell align="center">{user.roles}</TableCell>
                   <TableCell align="center">{user.phone}</TableCell>
+                  <TableCell align="center">{user.code}</TableCell>
                   <TableCell align="right">
                     <IconButton color="error">
                       <DeleteIcon />
@@ -327,7 +351,7 @@ export default function MembersList({ params: { lang } }) {
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
-                  count={users["hydra:member"]?.length}
+                  count={filteredUsers?.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -351,6 +375,7 @@ export default function MembersList({ params: { lang } }) {
             <TextField {...register("email")} label="Email" fullWidth margin="normal" />
             <TextField {...register("roles")} label="Roles" fullWidth margin="normal" />
             <TextField {...register("phone")} label="Numéro" fullWidth margin="normal" />
+            <TextField {...register("code")} label="Numéro" fullWidth margin="normal" />
 
             <Box mt={2} display="flex" justifyContent="space-between">
               <Button onClick={handleClose} color="error" variant="outlined">

@@ -5,6 +5,7 @@ export type UserDocument = {
     roles: string[];
     email: string;
     phone: string;
+    code: string;
 }
 
 export interface GetUsersDto {
