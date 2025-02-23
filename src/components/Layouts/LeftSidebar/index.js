@@ -78,7 +78,7 @@ const Sidebar = ({ toogleActive }) => {
 							</IconButton>
 						</Box>
 
-						{lang === "en"
+						{/* {lang === "en"
 							? sidebarDataEN.map((item, index) => {
 									return <SubMenu item={item} key={index} />;
 							  })
@@ -88,6 +88,11 @@ const Sidebar = ({ toogleActive }) => {
 							  })
 							: lang === "de"
 							? sidebarDataDE.map((item, index) => {
+									return <SubMenu item={item} key={index} />;
+							  })
+							: ""} */}
+							{lang === "en"
+							? sidebarDataEN.map((item, index) => {
 									return <SubMenu item={item} key={index} />;
 							  })
 							: ""}

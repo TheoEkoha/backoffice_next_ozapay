@@ -102,7 +102,8 @@ export const sidebarDataEN = [
 	// },
 	{
 		title: "Users List",
-		path: "/contact-list/members-list",
+		//path: "/contact-list/members-list",
+		path: "/contact-list",
 		icon: <PostAddIcon />,
 		iconClosed: <KeyboardArrowRightIcon />,
 		iconOpened: <KeyboardArrowDownIcon />,
