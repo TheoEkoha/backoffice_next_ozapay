@@ -116,10 +116,10 @@ export const sidebarDataEN = [
 			// 	title: "Members Grid",
 			// 	path: "/contact-list/contact-list2/",
 			// },
-			{
-				title: "Members List",
-				path: "/contact-list/members-list/",
-			},
+			// {
+			// 	title: "Members List",
+			// 	path: "/contact-list/members-list/",
+			// },
 			// {
 			// 	title: "Profile",
 			// 	path: "/contact-list/profile/",
