@@ -39,6 +39,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import {UserDocument} from "../../api/users/users.model"
 import EditUserModal from "../../../components/UIElements/Modal/EditUserModal";
 import { SearchFormUser } from "../../../components/Apps/User/SearchFormUser";
+import { toast } from "sonner";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -205,6 +206,24 @@ export default function MembersList({ params: { lang } }) {
     setPage(0);
   };
 
+  const onDelete = async (data: UserDocument) => {
+    console.log("Suppresion de l'utilisateur :", data);
+
+    await fetch(`https://backoffice.ozapay.me/api/users/${data?.id}/delete`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    });
+    setRefresh(true);
+
+    toast.success('Utilisateur supprimé avec succès');
+   // ⚠️ Ajoute un petit délai pour s'assurer que le toast ne bloque pas la mise à jour
+    setTimeout(() => {
+      setRefresh(true);
+    }, 250);
+
+  };
+
+  
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -330,7 +349,7 @@ export default function MembersList({ params: { lang } }) {
                   <TableCell align="center">{user.code}</TableCell>
                   <TableCell align="right">
                     <IconButton color="error">
-                      <DeleteIcon />
+                      <DeleteIcon  onClick={() => onDelete(user)}></DeleteIcon>
                     </IconButton>
                     <IconButton color="primary" onClick={() => handleOpen(user)}>
                       <DriveFileRenameOutlineIcon />

@@ -74,6 +74,24 @@ const EditUserModal: React.FC<EditUserModalProps> = ({ open, onClose, selectedUs
     onClose(); // Fermer la modal après la mise à jour$
   };
 
+  const onDelete = async (data: UserDocument) => {
+    console.log("Suppresion de l'utilisateur :", data);
+
+    await fetch(`https://backoffice.ozapay.me/api/user/${selectedUser?.id}/delete`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    });
+    setRefresh(true);
+
+    toast.success('Utilisateur supprimé avec succès');
+   // ⚠️ Ajoute un petit délai pour s'assurer que le toast ne bloque pas la mise à jour
+    setTimeout(() => {
+      setRefresh(true);
+    }, 250);
+
+    onClose(); // Fermer la modal après la mise à jour$
+  };
+
 
   return (
     <>
