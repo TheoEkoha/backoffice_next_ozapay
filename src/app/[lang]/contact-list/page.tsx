@@ -1,7 +1,7 @@
-'use client'; // Indique que ce composant doit être rendu côté client
+"use client"; // Indique que ce composant doit être rendu côté client
 
 import * as React from "react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Box, Typography } from "@mui/material";
@@ -36,7 +36,7 @@ import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
-import {UserDocument} from "../../api/users/users.model"
+import { UserDocument } from "../../api/users/users.model";
 import EditUserModal from "../../../components/UIElements/Modal/EditUserModal";
 import { SearchFormUser } from "../../../components/Apps/User/SearchFormUser";
 import { toast } from "sonner";
@@ -53,7 +53,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -65,7 +64,6 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
@@ -100,7 +98,6 @@ BootstrapDialogTitle.propTypes = {
 function MembersLists(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
-
 
   const handleFirstPageButtonClick = (event) => {
     onPageChange(event, 0);
@@ -170,15 +167,15 @@ MembersLists.propTypes = {
 export default function MembersList({ params: { lang } }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refresh, setRefresh] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [open, setOpen] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
 
   const [selectedUser, setSelectedUser] = useState<UserDocument | null>(null);
   const { register, handleSubmit, setValue } = useForm<UserDocument>(undefined);
-
+  const [isSearching, setIsSearching] = useState(false);
   const handleOpen = (user: UserDocument) => {
     setSelectedUser(user);
     setValue("firstName", user.firstName);
@@ -189,21 +186,42 @@ export default function MembersList({ params: { lang } }) {
     setOpen(true);
   };
 
-  const [filteredUsers, setFilteredUsers] = useState(users["hydra:member"]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
 
-  useEffect(() => {
-    setFilteredUsers(users["hydra:member"]); // Réinitialiser à tous les utilisateurs au départ
-  }, [users]);
-
+  // useEffect(() => {
+  //   setFilteredUsers(;
+  // }, [users]);
   const handleSearch = (searchTerm) => {
-    const results = users["hydra:member"].filter(user =>
-      user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredUsers(results);
-    setPage(0);
+    setIsSearching(!!searchTerm.trim()); // Indique qu'on est en recherche
+    console.log("searchTerm->", searchTerm)
+    if (!searchTerm.trim()) {
+      console.log("searchTerm DEDANS->", searchTerm)
+
+      // Si le champ est vide, on remet tous les utilisateurs
+      setFilteredUsers(users['hydra:member']); // 🔥 Remettre toute la réponse API
+      return;
+    }
+  
+  
+  const data = users
+    console.log("data->", data)
+    console.log("users->", users)
+    console.log("searchTermsearchTerm->", searchTerm)
+
+    if (data && data?.length > 0) {
+      console.log("Ici meme")
+      const results = data?.filter(
+        (user) =>
+          user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  
+      console.log("Résultats trouvés:", results);
+      setFilteredUsers([...results]); // Force un nouvel objet
+    }
+    //setPage(0);
   };
 
   const onDelete = async (data: UserDocument) => {
@@ -211,55 +229,76 @@ export default function MembersList({ params: { lang } }) {
 
     await fetch(`https://backoffice.ozapay.me/api/users/${data?.id}/delete`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     });
-    setRefresh(true);
 
-    toast.success('Utilisateur supprimé avec succès');
-   // ⚠️ Ajoute un petit délai pour s'assurer que le toast ne bloque pas la mise à jour
+    toast.success("Utilisateur supprimé avec succès");
+    // Recharger les données après la suppression
     setTimeout(() => {
-      setRefresh(true);
+      fetchUsers();
     }, 250);
-
   };
-
-  
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('https://backoffice.ozapay.me/api/users'); // Appel à l'API route
-        if (!response.ok) {
-          throw new Error('Error fetching users');
-        }
-        const data = await response.json();
-        setUsers(data); // Met à jour l'état avec les utilisateurs
-      } catch (err) {
-        setError(err.message); // Gestion des erreurs
-      } finally {
-        setLoading(false); // Fin du chargement
-      }
-    };
-
-    fetchUsers(); // Appelle la fonction pour récupérer les utilisateurs
-  }, [refresh]); // Le tableau vide [] signifie que l'effet ne s'exécute qu'une seule fois
-
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - filteredUsers?.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(
+        `https://backoffice.ozapay.me/api/users?page=${
+          page + 1
+        }&itemsPerPage=${rowsPerPage}`
+      );
+      if (!response.ok) {
+        throw new Error("Error fetching users");
+      }
+      const data = await response.json();
+      console.log("Data from API:", data);
+      setFilteredUsers(data['hydra:member']); // Stocker toute la réponse de l'API
+      setUsers(data['hydra:member']); // Stocker toute la réponse de l'API
+      setTotalCount(data['hydra:totalItems']); // Stocker toute la réponse de l'API
+      //setUsers(data); // Stocker toute la réponse de l'API
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!isSearching) {
+      setFilteredUsers(users);
+    }
+  }, [users, isSearching]);
+  useEffect(() => {
+    fetchUsers(); // Appel de l'API quand `page` ou `rowsPerPage` change
+  }, [page, rowsPerPage]);
+
+  
+
+  useEffect(() => {
+    if (filteredUsers?.length > 0) {
+      console.log("filteredUsers mis à jour:", filteredUsers);
+      // Tu peux exécuter ici d'autres actions qui nécessitent que filteredUsers soit prêt
+    }
+  }, [filteredUsers]); // Se déclenche quand filteredUsers change
+
+  const emptyRows =
+    page > 0
+      ? Math.max(0, (1 + page) * rowsPerPage - filteredUsers?.length)
+      : 0;
+
   const handleChangeRowsPerPage = (event) => {
+    console.log("PAGE -> ", event.target.value);
     setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    //setPage(0); // Toujours revenir à la première page
   };
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -271,7 +310,7 @@ export default function MembersList({ params: { lang } }) {
     });
 
     setOpen(false);
-    setRefresh(false)
+    fetchUsers(); // Recharger les données après la mise à jour
   };
 
   return (
@@ -310,18 +349,19 @@ export default function MembersList({ params: { lang } }) {
               color: "#fff !important",
             }}
           >
-            <AddIcon sx={{ position: "relative", top: "-1px" }} /> Create New User
+            <AddIcon sx={{ position: "relative", top: "-1px" }} /> Create New
+            User
           </Button>
         </Box>
 
-            {/* Barre de recherche */}
-            <SearchFormUser onSearch={handleSearch} />
+        {/* Barre de recherche */}
+        <SearchFormUser onSearch={handleSearch} />
 
         <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
           <Table sx={{ minWidth: 850 }} aria-label="custom pagination table">
             <TableHead sx={{ background: "#F7FAFF" }}>
               <TableRow>
-              <TableCell align="center">ID</TableCell>
+                <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Prénom</TableCell>
                 <TableCell align="center">Nom de famille</TableCell>
                 <TableCell align="right">E-mail</TableCell>
@@ -333,34 +373,39 @@ export default function MembersList({ params: { lang } }) {
             </TableHead>
 
             <TableBody>
-              {(rowsPerPage > 0
-                ? filteredUsers?.sort((a, b) => a.id - b.id)?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                : filteredUsers?.sort((a, b) => a.id - b.id)
-              )?.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell>
-                  <Checkbox size="small" />{user.id}
+              {filteredUsers &&
+              filteredUsers &&
+              filteredUsers.length > 0 ? (
+                filteredUsers.map((user) => (
+                  <TableRow key={user.id}>
+                    <TableCell>
+                      <Checkbox size="small" />
+                      {user.id}
+                    </TableCell>
+                    <TableCell align="center">{user.firstName}</TableCell>
+                    <TableCell align="center">{user.lastName}</TableCell>
+                    <TableCell align="center">{user.email}</TableCell>
+                    <TableCell align="center">{user.roles.join(' | ')}</TableCell>
+                    <TableCell align="center">{user.phone}</TableCell>
+                    <TableCell align="center">{user.code}</TableCell>
+                    <TableCell align="right">
+                      <IconButton color="error">
+                        <DeleteIcon onClick={() => onDelete(user)} />
+                      </IconButton>
+                      <IconButton
+                        color="primary"
+                        onClick={() => handleOpen(user)}
+                      >
+                        <DriveFileRenameOutlineIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={8} align="center">
+                    Aucun utilisateur trouvé
                   </TableCell>
-                  <TableCell align="center">{user.firstName}</TableCell>
-                  <TableCell align="center">{user.lastName}</TableCell>
-                  <TableCell align="center">{user.email}</TableCell>
-                  <TableCell align="center">{user.roles}</TableCell>
-                  <TableCell align="center">{user.phone}</TableCell>
-                  <TableCell align="center">{user.code}</TableCell>
-                  <TableCell align="right">
-                    <IconButton color="error">
-                      <DeleteIcon  onClick={() => onDelete(user)}></DeleteIcon>
-                    </IconButton>
-                    <IconButton color="primary" onClick={() => handleOpen(user)}>
-                      <DriveFileRenameOutlineIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
-                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
@@ -368,9 +413,11 @@ export default function MembersList({ params: { lang } }) {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+                  rowsPerPageOptions={[5, 10, 25, 100]}
                   colSpan={5}
-                  count={filteredUsers?.length}
+                  count={
+                    (totalCount) || 0
+                  }
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -383,18 +430,53 @@ export default function MembersList({ params: { lang } }) {
       </Card>
 
       {/* MODAL */}
-      <EditUserModal setRefresh={setRefresh} open={open} onClose={handleClose} selectedUser={selectedUser}>
+      <EditUserModal
+        open={open}
+        onClose={handleClose}
+        setRefresh={() => {}}
+        selectedUser={selectedUser}
+      >
         <Box sx={style}>
           <Typography variant="h6" component="h2">
             Modifier l'utilisateur
           </Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField {...register("firstName")} label="Prénom" fullWidth margin="normal" />
-            <TextField {...register("lastName")} label="Nom de famille" fullWidth margin="normal" />
-            <TextField {...register("email")} label="Email" fullWidth margin="normal" />
-            <TextField {...register("roles")} label="Roles" fullWidth margin="normal" />
-            <TextField {...register("phone")} label="Numéro" fullWidth margin="normal" />
-            <TextField {...register("code")} label="Numéro" fullWidth margin="normal" />
+            <TextField
+              {...register("firstName")}
+              label="Prénom"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              {...register("lastName")}
+              label="Nom de famille"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              {...register("email")}
+              label="Email"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              {...register("roles")}
+              label="Roles"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              {...register("phone")}
+              label="Numéro"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              {...register("code")}
+              label="Numéro"
+              fullWidth
+              margin="normal"
+            />
 
             <Box mt={2} display="flex" justifyContent="space-between">
               <Button onClick={handleClose} color="error" variant="outlined">
@@ -407,7 +489,6 @@ export default function MembersList({ params: { lang } }) {
           </form>
         </Box>
       </EditUserModal>
-
     </>
   );
 }
