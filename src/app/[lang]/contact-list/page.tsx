@@ -193,10 +193,7 @@ export default function MembersList({ params: { lang } }) {
   // }, [users]);
   const handleSearch = (searchTerm) => {
     setIsSearching(!!searchTerm.trim()); // Indique qu'on est en recherche
-    console.log("searchTerm->", searchTerm)
     if (!searchTerm.trim()) {
-      console.log("searchTerm DEDANS->", searchTerm)
-
       // Si le champ est vide, on remet tous les utilisateurs
       setFilteredUsers(users['hydra:member']); // 🔥 Remettre toute la réponse API
       return;
@@ -204,29 +201,20 @@ export default function MembersList({ params: { lang } }) {
   
   
   const data = users
-    console.log("data ->", data)
-    console.log("users->", users)
-    console.log("searchTermsearchTerm->", searchTerm)
-
     if (data && data?.length > 0) {
-      console.log("Ici meme")
       const results = data?.filter(
         (user) =>
           user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase())
-      );
-  
-      console.log("Résultats trouvés:", results);
+      );  
       setFilteredUsers([...results]); // Force un nouvel objet
     }
     //setPage(0);
   };
 
   const onDelete = async (data: UserDocument) => {
-    console.log("Suppresion de l'utilisateur :", data);
-
     await fetch(`https://backoffice.ozapay.me/api/users/${data?.id}/delete`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -244,17 +232,20 @@ export default function MembersList({ params: { lang } }) {
   };
 
   const fetchUsers = async () => {
+    let itemsPerPage = rowsPerPage
+
+    if (itemsPerPage === -1)
+      itemsPerPage = totalCount;
     try {
       const response = await fetch(
         `https://backoffice.ozapay.me/api/users?page=${
           page + 1
-        }&itemsPerPage=${rowsPerPage}`
+        }&itemsPerPage=${itemsPerPage}`
       );
       if (!response.ok) {
         throw new Error("Error fetching users");
       }
       const data = await response.json();
-      console.log("Data from API:", data);
       setFilteredUsers(data['hydra:member']); // Stocker toute la réponse de l'API
       setUsers(data['hydra:member']); // Stocker toute la réponse de l'API
       setTotalCount(data['hydra:totalItems']); // Stocker toute la réponse de l'API
@@ -279,7 +270,6 @@ export default function MembersList({ params: { lang } }) {
 
   useEffect(() => {
     if (filteredUsers?.length > 0) {
-      console.log("filteredUsers mis à jour:", filteredUsers);
       // Tu peux exécuter ici d'autres actions qui nécessitent que filteredUsers soit prêt
     }
   }, [filteredUsers]); // Se déclenche quand filteredUsers change
@@ -290,7 +280,6 @@ export default function MembersList({ params: { lang } }) {
       : 0;
 
   const handleChangeRowsPerPage = (event) => {
-    console.log("PAGE -> ", event.target.value);
     setRowsPerPage(parseInt(event.target.value, 10));
     //setPage(0); // Toujours revenir à la première page
   };
@@ -413,7 +402,7 @@ export default function MembersList({ params: { lang } }) {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, 100]}
+                  rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
                   count={
                     (totalCount) || 0
