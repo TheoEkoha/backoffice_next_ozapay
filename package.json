@@ -7,8 +7,8 @@
     "export": "next export",
     "build": "next build",
     "start": "next start",
-    "kill_process": "kill -9 $(lsof -t -i:1337)",
-    "start_vps": "next dev -p 1337",
+    "kill_process": "fuser -k 1337/tcp",
+    "start_vps": "next start -p 1337  --turbo --force",
     "lint": "eslint .",
     "plesk": "nextjs-plesk-fix"
   },
