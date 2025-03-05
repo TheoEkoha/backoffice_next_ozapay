@@ -204,7 +204,7 @@ export default function MembersList({ params: { lang } }) {
   
   
   const data = users
-    console.log("data->", data)
+    console.log("data ->", data)
     console.log("users->", users)
     console.log("searchTermsearchTerm->", searchTerm)
 
