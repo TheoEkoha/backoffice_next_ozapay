@@ -354,11 +354,11 @@ export default function MembersList({ params: { lang } }) {
                 <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Prénom</TableCell>
                 <TableCell align="center">Nom de famille</TableCell>
-                <TableCell align="right">E-mail</TableCell>
-                <TableCell align="right">Roles</TableCell>
-                <TableCell align="right">Numéro</TableCell>
-                <TableCell align="right">Code</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell align="center">E-mail</TableCell>
+                <TableCell align="center">Roles</TableCell>
+                <TableCell align="center">Numéro</TableCell>
+                <TableCell align="center">Code</TableCell>
+                <TableCell align="center">Actions</TableCell>
               </TableRow>
             </TableHead>
 
@@ -378,7 +378,7 @@ export default function MembersList({ params: { lang } }) {
                     <TableCell align="center">{user.roles.join(' | ')}</TableCell>
                     <TableCell align="center">{user.phone}</TableCell>
                     <TableCell align="center">{user.code}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       <IconButton color="error">
                         <DeleteIcon onClick={() => onDelete(user)} />
                       </IconButton>
