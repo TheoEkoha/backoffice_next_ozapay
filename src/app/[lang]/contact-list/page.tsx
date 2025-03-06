@@ -215,9 +215,10 @@ export default function MembersList({ params: { lang } }) {
   };
 
   const onDelete = async (data: UserDocument) => {
-    await fetch(`https://backoffice.ozapay.me/api/users/${data?.id}/delete`, {
-      method: "DELETE",
+    await fetch(`https://backoffice.ozapay.me/api/users/delete`, {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: data.email })
     });
 
     toast.success("Utilisateur supprimé avec succès");
