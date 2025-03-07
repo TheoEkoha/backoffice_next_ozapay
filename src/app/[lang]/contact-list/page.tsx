@@ -207,7 +207,8 @@ export default function MembersList({ params: { lang } }) {
           user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase())
+          user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.phone?.includes(searchTerm),
       );  
       setFilteredUsers([...results]); // Force un nouvel objet
     }
