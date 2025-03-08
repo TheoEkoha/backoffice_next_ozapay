@@ -43,6 +43,9 @@ const EditUserModal: React.FC<EditUserModalProps> = ({ open, onClose, selectedUs
       setValue("email", selectedUser.email);
       setValue("roles", selectedUser.roles);
       setValue("phone", selectedUser.phone);
+      setValue("address", selectedUser.address);
+      setValue("postalCode", selectedUser.postalCode);
+      setValue("city", selectedUser.city);
     }
   }, [selectedUser, setValue]);
 
@@ -101,19 +104,20 @@ const EditUserModal: React.FC<EditUserModalProps> = ({ open, onClose, selectedUs
               Modifier l'utilisateur
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField {...register("firstName")} label="Prénom" fullWidth margin="normal" />
-          <TextField {...register("lastName")} label="Nom de famille" fullWidth margin="normal" />
-          <TextField {...register("email")} label="Email" fullWidth margin="normal" />
-          <TextField
-            {...register("roles")}
-            label="Roles"
-            fullWidth
-            margin="normal"
-            value={selectedUser?.roles?.join(", ") || ""}
-            onChange={(e) => setValue("roles", e.target.value.split(", ").map((role) => role.trim()))}
-            />
-          <TextField {...register("phone")} label="Numéro" fullWidth margin="normal" />
-
+              <TextField {...register("firstName")} label="Prénom" fullWidth margin="normal"/>
+              <TextField {...register("lastName")} label="Nom de famille" fullWidth margin="normal"/>
+              <TextField {...register("email")} label="Email" fullWidth margin="normal"/>
+              <TextField
+                {...register("roles")}
+                fullWidth
+                label="Roles"
+                margin="normal"
+                value={selectedUser?.roles?.join(", ") || ""}
+                onChange={(e) => setValue("roles", e.target.value.split(", ").map((role) => role.trim()))}/>
+              <TextField {...register("phone")} label="Numéro" fullWidth margin="normal"/>
+              <TextField {...register("address")} label="Adresse" fullWidth margin="normal"/>
+              <TextField {...register("postalCode")} label="Code postal" fullWidth margin="normal"/>
+              <TextField {...register("city")} label="Ville" fullWidth margin="normal"/>
               <Box mt={2} display="flex" justifyContent="space-between">
                 <Button onClick={onClose} color="error" variant="outlined">
                   Annuler

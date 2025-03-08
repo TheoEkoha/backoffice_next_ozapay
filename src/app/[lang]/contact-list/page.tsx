@@ -183,6 +183,9 @@ export default function MembersList({ params: { lang } }) {
     setValue("email", user.email);
     setValue("roles", user.roles);
     setValue("phone", user.phone);
+    setValue("address", user.address);
+    setValue("postalCode", user.postalCode);
+    setValue("city", user.city);
     setOpen(true);
   };
 
@@ -208,7 +211,10 @@ export default function MembersList({ params: { lang } }) {
           user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.phone?.includes(searchTerm),
+          user.phone.includes(searchTerm) ||
+          user.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.postalCode?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.city?.toLowerCase().includes(searchTerm.toLowerCase()),
       );  
       setFilteredUsers([...results]); // Force un nouvel objet
     }
@@ -359,6 +365,9 @@ export default function MembersList({ params: { lang } }) {
                 <TableCell align="center">Roles</TableCell>
                 <TableCell align="center">Numéro</TableCell>
                 <TableCell align="center">Code</TableCell>
+                <TableCell align="center">Adresse</TableCell>
+                <TableCell align="center">Code postal</TableCell>
+                <TableCell align="center">Ville</TableCell>
                 <TableCell align="center">Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -379,6 +388,9 @@ export default function MembersList({ params: { lang } }) {
                     <TableCell align="center">{user.roles.join(' | ')}</TableCell>
                     <TableCell align="center">{user.phone}</TableCell>
                     <TableCell align="center">{user.code}</TableCell>
+                    <TableCell align="center">{user.address}</TableCell>
+                    <TableCell align="center">{user.postalCode}</TableCell>
+                    <TableCell align="center">{user.city}</TableCell>
                     <TableCell align="center">
                       <IconButton color="error">
                         <DeleteIcon onClick={() => onDelete(user)} />
@@ -394,7 +406,7 @@ export default function MembersList({ params: { lang } }) {
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={8} align="center">
+                  <TableCell colSpan={12} align="center">
                     Aucun utilisateur trouvé
                   </TableCell>
                 </TableRow>
@@ -405,7 +417,7 @@ export default function MembersList({ params: { lang } }) {
               <TableRow>
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-                  colSpan={5}
+                  colSpan={7}
                   count={
                     (totalCount) || 0
                   }
@@ -468,7 +480,21 @@ export default function MembersList({ params: { lang } }) {
               fullWidth
               margin="normal"
             />
-
+            <TextField
+              {...register("address")}
+              label="Adresse"
+              fullWidth
+              margin="normal"/>
+            <TextField
+              {...register("postalCode")}
+              label="Code postal"
+              fullWidth
+              margin="normal"/>
+            <TextField
+              {...register("city")}
+              label="Ville"
+              fullWidth
+              margin="normal"/>
             <Box mt={2} display="flex" justifyContent="space-between">
               <Button onClick={handleClose} color="error" variant="outlined">
                 Annuler
