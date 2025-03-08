@@ -22,20 +22,19 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import Grid from "@mui/material/Grid";
-import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import AddIcon from "@mui/icons-material/Add";
-import ClearIcon from "@mui/icons-material/Clear";
 import Checkbox from "@mui/material/Checkbox";
-import PageTitle from "../../../components/Common/PageTitle";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import CloseIcon from "@mui/icons-material/Close";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
 import { UserDocument } from "../../api/users/users.model";
 import EditUserModal from "../../../components/UIElements/Modal/EditUserModal";
 import { SearchFormUser } from "../../../components/Apps/User/SearchFormUser";
@@ -176,6 +175,11 @@ export default function MembersList({ params: { lang } }) {
   const [selectedUser, setSelectedUser] = useState<UserDocument | null>(null);
   const { register, handleSubmit, setValue } = useForm<UserDocument>(undefined);
   const [isSearching, setIsSearching] = useState(false);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+
+  const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
+
   const handleOpen = (user: UserDocument) => {
     setSelectedUser(user);
     setValue("firstName", user.firstName);
@@ -189,21 +193,33 @@ export default function MembersList({ params: { lang } }) {
     setOpen(true);
   };
 
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  const handleDeleteClick = (user: UserDocument) => {
+    setUserToDelete(user);
+    setOpenConfirmDelete(true);
+  };
 
-  // useEffect(() => {
-  //   setFilteredUsers(;
-  // }, [users]);
+  const confirmDelete = async () => {
+    if (userToDelete) {
+      await onDelete(userToDelete);
+      setOpenConfirmDelete(false);
+      setUserToDelete(null);
+    }
+  };
+
+  const handleCloseConfirmDelete = () => {
+    setOpenConfirmDelete(false);
+    setUserToDelete(null);
+  };
+
   const handleSearch = (searchTerm) => {
     setIsSearching(!!searchTerm.trim()); // Indique qu'on est en recherche
     if (!searchTerm.trim()) {
       // Si le champ est vide, on remet tous les utilisateurs
-      setFilteredUsers(users['hydra:member']); // 🔥 Remettre toute la réponse API
+      setFilteredUsers(users["hydra:member"]); // 🔥 Remettre toute la réponse API
       return;
     }
-  
-  
-  const data = users
+
+    const data = users;
     if (data && data?.length > 0) {
       const results = data?.filter(
         (user) =>
@@ -214,9 +230,9 @@ export default function MembersList({ params: { lang } }) {
           user.phone.includes(searchTerm) ||
           user.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.postalCode?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.city?.toLowerCase().includes(searchTerm.toLowerCase()),
-      );  
-      setFilteredUsers([...results]); // Force un nouvel objet
+          user.city?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredUsers([...results]); // Forcer un nouvel objet
     }
     //setPage(0);
   };
@@ -225,7 +241,7 @@ export default function MembersList({ params: { lang } }) {
     await fetch(`https://backoffice.ozapay.me/api/users/delete`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: data.email })
+      body: JSON.stringify({ email: data.email }),
     });
 
     toast.success("Utilisateur supprimé avec succès");
@@ -240,24 +256,20 @@ export default function MembersList({ params: { lang } }) {
   };
 
   const fetchUsers = async () => {
-    let itemsPerPage = rowsPerPage
+    let itemsPerPage = rowsPerPage;
 
-    if (itemsPerPage === -1)
-      itemsPerPage = totalCount;
+    if (itemsPerPage === -1) itemsPerPage = totalCount;
     try {
       const response = await fetch(
-        `https://backoffice.ozapay.me/api/users?page=${
-          page + 1
-        }&itemsPerPage=${itemsPerPage}`
+        `https://backoffice.ozapay.me/api/users?page=${page + 1}&itemsPerPage=${itemsPerPage}`
       );
       if (!response.ok) {
         throw new Error("Error fetching users");
       }
       const data = await response.json();
-      setFilteredUsers(data['hydra:member']); // Stocker toute la réponse de l'API
-      setUsers(data['hydra:member']); // Stocker toute la réponse de l'API
-      setTotalCount(data['hydra:totalItems']); // Stocker toute la réponse de l'API
-      //setUsers(data); // Stocker toute la réponse de l'API
+      setFilteredUsers(data["hydra:member"]); // Stocker toute la réponse de l'API
+      setUsers(data["hydra:member"]); // Stocker toute la réponse de l'API
+      setTotalCount(data["hydra:totalItems"]); // Stocker toute la réponse de l'API
       setLoading(false);
     } catch (err) {
       setError(err.message);
@@ -273,8 +285,6 @@ export default function MembersList({ params: { lang } }) {
   useEffect(() => {
     fetchUsers(); // Appel de l'API quand `page` ou `rowsPerPage` change
   }, [page, rowsPerPage]);
-
-  
 
   useEffect(() => {
     if (filteredUsers?.length > 0) {
@@ -373,9 +383,7 @@ export default function MembersList({ params: { lang } }) {
             </TableHead>
 
             <TableBody>
-              {filteredUsers &&
-              filteredUsers &&
-              filteredUsers.length > 0 ? (
+              {filteredUsers && filteredUsers.length > 0 ? (
                 filteredUsers.map((user) => (
                   <TableRow key={user.id}>
                     <TableCell>
@@ -385,7 +393,7 @@ export default function MembersList({ params: { lang } }) {
                     <TableCell align="center">{user.firstName}</TableCell>
                     <TableCell align="center">{user.lastName}</TableCell>
                     <TableCell align="center">{user.email}</TableCell>
-                    <TableCell align="center">{user.roles.join(' | ')}</TableCell>
+                    <TableCell align="center"> {user.roles.join(" | ")}</TableCell>
                     <TableCell align="center">{user.phone}</TableCell>
                     <TableCell align="center">{user.code}</TableCell>
                     <TableCell align="center">{user.address}</TableCell>
@@ -393,7 +401,7 @@ export default function MembersList({ params: { lang } }) {
                     <TableCell align="center">{user.city}</TableCell>
                     <TableCell align="center">
                       <IconButton color="error">
-                        <DeleteIcon onClick={() => onDelete(user)} />
+                        <DeleteIcon onClick={() => handleDeleteClick(user)}/>
                       </IconButton>
                       <IconButton
                         color="primary"
@@ -418,9 +426,7 @@ export default function MembersList({ params: { lang } }) {
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                   colSpan={7}
-                  count={
-                    (totalCount) || 0
-                  }
+                  count={totalCount || 0}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -444,57 +450,15 @@ export default function MembersList({ params: { lang } }) {
             Modifier l'utilisateur
           </Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField
-              {...register("firstName")}
-              label="Prénom"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("lastName")}
-              label="Nom de famille"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("email")}
-              label="Email"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("roles")}
-              label="Roles"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("phone")}
-              label="Numéro"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("code")}
-              label="Numéro"
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              {...register("address")}
-              label="Adresse"
-              fullWidth
-              margin="normal"/>
-            <TextField
-              {...register("postalCode")}
-              label="Code postal"
-              fullWidth
-              margin="normal"/>
-            <TextField
-              {...register("city")}
-              label="Ville"
-              fullWidth
-              margin="normal"/>
+            <TextField {...register("firstName")} label="Prénom" fullWidth margin="normal"/>
+            <TextField {...register("lastName")} label="Nom de famille" fullWidth margin="normal"/>
+            <TextField {...register("email")} label="Email" fullWidth margin="normal"/>
+            <TextField {...register("roles")} label="Roles" fullWidth margin="normal"/>
+            <TextField {...register("phone")} label="Téléphone" fullWidth margin="normal"/>
+            <TextField {...register("code")} label="Code" fullWidth margin="normal"/>
+            <TextField {...register("address")} label="Adresse" fullWidth margin="normal"/>
+            <TextField {...register("postalCode")} label="Code postal" fullWidth margin="normal"/>
+            <TextField {...register("city")} label="Ville" fullWidth margin="normal"/>
             <Box mt={2} display="flex" justifyContent="space-between">
               <Button onClick={handleClose} color="error" variant="outlined">
                 Annuler
@@ -506,6 +470,29 @@ export default function MembersList({ params: { lang } }) {
           </form>
         </Box>
       </EditUserModal>
+
+      <Dialog
+        open={openConfirmDelete}
+        onClose={handleCloseConfirmDelete}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description">
+        <DialogTitle id="alert-dialog-title">
+          Confirmer la suppression
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Êtes-vous sûr de vouloir supprimer cet utilisateur ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseConfirmDelete} color="primary">
+            Annuler
+          </Button>
+          <Button onClick={confirmDelete} color="error" autoFocus>
+            Supprimer
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
