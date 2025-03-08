@@ -4,7 +4,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
@@ -39,6 +39,7 @@ import { UserDocument } from "../../api/users/users.model";
 import EditUserModal from "../../../components/UIElements/Modal/EditUserModal";
 import { SearchFormUser } from "../../../components/Apps/User/SearchFormUser";
 import { toast } from "sonner";
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -320,6 +321,73 @@ export default function MembersList({ params: { lang } }) {
     fetchUsers(); // Recharger les données après la mise à jour
   };
 
+  const exportCSV = async () => {
+    try {
+      const itemsPerPage = totalCount || rowsPerPage;
+      const response = await fetch(
+        `https://backoffice.ozapay.me/api/users?page=1&itemsPerPage=${itemsPerPage}`
+      );
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération des utilisateurs");
+      }
+      const data = await response.json();
+      const allUsers = data["hydra:member"] || [];
+
+      const csv = convertToCSV(allUsers);
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "users.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      toast.error("Erreur lors de l'export CSV: " + error.message);
+    }
+  };
+
+  const convertToCSV = (users) => {
+    const header = [
+      "ID",
+      "Prénom",
+      "Nom de famille",
+      "E-mail",
+      "Roles",
+      "Numéro",
+      "Code",
+      "Adresse",
+      "Code postal",
+      "Ville",
+    ];
+    const rows = users.map((user) => {
+      return [
+        user.id,
+        user.firstName,
+        user.lastName,
+        user.email,
+        Array.isArray(user.roles) ? user.roles.join(" | ") : user.roles,
+        user.phone,
+        user.code,
+        user.address,
+        user.postalCode,
+        user.city,
+      ]
+        .map((field) => {
+          if (field === null || field === undefined) {
+            field = "";
+          }
+          field = field.toString();
+          if (field.includes(",") || field.includes('"') || field.includes("\n")) {
+            field = '"' + field.replace(/"/g, '""') + '"';
+          }
+          return field;
+        })
+        .join(",");
+    });
+    return [header.join(","), ...rows].join("\n");
+  };
+
   return (
     <>
       <Card
@@ -344,21 +412,42 @@ export default function MembersList({ params: { lang } }) {
             Users List
           </Typography>
 
-          <Button
-            onClick={handleClickOpen}
-            variant="contained"
-            sx={{
-              textTransform: "capitalize",
-              borderRadius: "8px",
-              fontWeight: "500",
-              fontSize: "13px",
-              padding: "12px 20px",
-              color: "#fff !important",
-            }}
-          >
-            <AddIcon sx={{ position: "relative", top: "-1px" }} /> Create New
-            User
-          </Button>
+          <Stack direction="row" spacing={3}>
+            <Button
+              onClick={exportCSV}
+              variant="contained"
+              sx={{
+                textTransform: "capitalize",
+                borderRadius: "8px",
+                fontWeight: "500",
+                fontSize: "13px",
+                padding: "12px 20px",
+                color: "#fff !important",
+              }}
+            >
+              <DescriptionIcon sx={{position: "relative", top: "-1px"}}/>
+              <Typography ml={1}>
+                Export CSV
+              </Typography>
+            </Button>
+            <Button
+              onClick={handleClickOpen}
+              variant="contained"
+              sx={{
+                textTransform: "capitalize",
+                borderRadius: "8px",
+                fontWeight: "500",
+                fontSize: "13px",
+                padding: "12px 20px",
+                color: "#fff !important",
+              }}
+            >
+              <AddIcon sx={{position: "relative", top: "-1px" }}/>
+              <Typography ml={1}>
+                Create New User
+              </Typography>
+            </Button>
+          </Stack>
         </Box>
 
         {/* Barre de recherche */}
