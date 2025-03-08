@@ -1,45 +1,65 @@
 "use client";
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import Image from "next/image";
 
-const FeaturesData = [
-  {
-    id: "1",
-    title: "$25,890",
-    subTitle: "Total Sales",
-    image: "/images/graph-icon.png",
-    icon: <TrendingUpIcon />,
-    growthText: "1.3% Up from past week",
-    color: "successColor",
-  },
-  {
-    id: "2",
-    title: "$25,890",
-    subTitle: "Total Orders",
-    image: "/images/work-icon.png",
-    icon: <TrendingUpIcon />,
-    growthText: "1.5% Up from past week",
-    color: "successColor",
-  },
-  {
-    id: "3",
-    title: "183.35M",
-    subTitle: "Total Customers",
-    image: "/images/users-icon.png",
-    icon: <TrendingDownIcon />,
-    growthText: "1.6% Up from past week",
-    color: "dangerColor",
-  },
-];
-
 const Features = () => {
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("https://backoffice.ozapay.me/api/users");
+      if (!response.ok) throw new Error("Error fetching users");
+      const data = await response.json();
+      setTotalCount(data['hydra:totalItems']);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const FeaturesData = [
+    {
+      id: "1",
+      title: "$25,890",
+      subTitle: "Total Sales",
+      image: "/images/graph-icon.png",
+      icon: <TrendingUpIcon/>,
+      growthText: "1.3% Up from past week",
+      color: "successColor",
+    },
+    {
+      id: "2",
+      title: "$25,890",
+      subTitle: "Total Orders",
+      image: "/images/work-icon.png",
+      icon: <TrendingUpIcon/>,
+      growthText: "1.5% Up from past week",
+      color: "successColor",
+    },
+    {
+      id: "3",
+      title: totalCount,
+      subTitle: "Comptes utilisateurs",
+      image: "/images/users-icon.png",
+      icon: <TrendingUpIcon/>,
+      growthText: "+22% d'augmentation cette semaine",
+      color: "successColor",
+    },
+  ];
+
   return (
     <>
       <Grid
