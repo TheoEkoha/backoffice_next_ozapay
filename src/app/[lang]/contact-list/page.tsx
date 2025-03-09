@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useEffect, useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
-import debounce from "lodash.debounce";
 
 import { Box, Typography, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
@@ -183,20 +182,6 @@ export default function MembersList({ params: { lang } }) {
   const [userToDelete, setUserToDelete] = useState(null);
   const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const debouncedSearch = useMemo(
-    () =>
-      debounce((value) => {
-        setSearchTerm(value);
-      }, 300),
-    []
-  );
-
-  useEffect(() => {
-    return () => {
-      debouncedSearch.cancel();
-    };
-  }, [debouncedSearch]);
-
   const handleOpen = (user: UserDocument) => {
     setSelectedUser(user);
     setValue("firstName", user.firstName);
@@ -245,7 +230,7 @@ export default function MembersList({ params: { lang } }) {
   }, [users, searchTerm]);
 
   const handleSearch = (term) => {
-    debouncedSearch(term);
+    setSearchTerm(term);
     // setPage(0);
   };
 
