@@ -180,6 +180,7 @@ export default function MembersList({ params: { lang } }) {
 
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
   const handleOpen = (user: UserDocument) => {
     setSelectedUser(user);
@@ -388,6 +389,30 @@ export default function MembersList({ params: { lang } }) {
     return [header.join(","), ...rows].join("\n");
   };
 
+  const onDeleteSelectedUsers = async () => {
+    const emails = selectedUsers.map((user) => user.email);
+    try {
+      const response = await fetch(
+        `https://backoffice.ozapay.me/api/users/delete-multiple`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ emails }),
+        }
+      );
+      if (response.ok) {
+        toast.success("Utilisateurs supprimés avec succès");
+        setSelectedUsers([]);
+        fetchUsers();
+      } else {
+        const errorData = await response.json();
+        toast.error("Erreur lors de la suppression: " + errorData.error);
+      }
+    } catch (error: any) {
+      toast.error("Erreur lors de la suppression: " + error.message);
+    }
+  };
+
   return (
     <>
       <Card
@@ -413,6 +438,24 @@ export default function MembersList({ params: { lang } }) {
           </Typography>
 
           <Stack direction="row" spacing={3}>
+            {selectedUsers.length > 0 && (
+              <Button
+                onClick={onDeleteSelectedUsers}
+                variant="contained"
+                sx={{
+                  textTransform: "capitalize",
+                  borderRadius: "8px",
+                  fontWeight: "500",
+                  fontSize: "13px",
+                  padding: "12px 20px",
+                  color: "#fff !important",
+                  backgroundColor: "#ff6961",
+                }}
+              >
+                <DeleteIcon sx={{position: "relative", top: "-1px"}}/>
+                <Typography ml={1}>Delete {selectedUsers.length} Users</Typography>
+              </Button>
+            )}
             <Button
               onClick={exportCSV}
               variant="contained"
@@ -476,7 +519,23 @@ export default function MembersList({ params: { lang } }) {
                 filteredUsers.map((user) => (
                   <TableRow key={user.id}>
                     <TableCell>
-                      <Checkbox size="small" />
+                    <Checkbox
+                        size="small"
+                        checked={selectedUsers.some(
+                          (selected) => selected.id === user.id
+                        )}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelectedUsers((prev) => [...prev, user]);
+                          } else {
+                            setSelectedUsers((prev) =>
+                              prev.filter(
+                                (selected) => selected.id !== user.id
+                              )
+                            );
+                          }
+                        }}
+                      />
                       {user.id}
                     </TableCell>
                     <TableCell align="center">{user.firstName}</TableCell>
