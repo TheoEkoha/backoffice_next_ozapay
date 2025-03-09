@@ -1,8 +1,9 @@
 "use client"; // Indique que ce composant doit être rendu côté client
 
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
+import debounce from "lodash.debounce";
 
 import { Box, Typography, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
@@ -175,13 +176,26 @@ export default function MembersList({ params: { lang } }) {
 
   const [selectedUser, setSelectedUser] = useState<UserDocument | null>(null);
   const { register, handleSubmit, setValue } = useForm<UserDocument>(undefined);
-  const [isSearching, setIsSearching] = useState(false);
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
   const [openConfirmDeleteMultiple, setOpenConfirmDeleteMultiple] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
   const [selectedUsers, setSelectedUsers] = useState([]);
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((value) => {
+        setSearchTerm(value);
+      }, 300),
+    []
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
 
   const handleOpen = (user: UserDocument) => {
     setSelectedUser(user);
@@ -214,30 +228,25 @@ export default function MembersList({ params: { lang } }) {
     setUserToDelete(null);
   };
 
-  const handleSearch = (searchTerm) => {
-    setIsSearching(!!searchTerm.trim()); // Indique qu'on est en recherche
-    if (!searchTerm.trim()) {
-      // Si le champ est vide, on remet tous les utilisateurs
-      setFilteredUsers(users["hydra:member"]); // 🔥 Remettre toute la réponse API
-      return;
-    }
+  const filteredUsers = useMemo(() => {
+    if (!searchTerm.trim()) return users;
 
-    const data = users;
-    if (data && data?.length > 0) {
-      const results = data?.filter(
-        (user) =>
-          user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.roles?.join().toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.phone.includes(searchTerm) ||
-          user.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.postalCode?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          user.city?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredUsers([...results]); // Forcer un nouvel objet
-    }
-    //setPage(0);
+    const lowerCaseTerm = searchTerm.toLowerCase();
+    return users.filter((user) =>
+      user.firstName.toLowerCase().includes(lowerCaseTerm) ||
+      user.lastName.toLowerCase().includes(lowerCaseTerm) ||
+      user.email.toLowerCase().includes(lowerCaseTerm) ||
+      (user.roles && user.roles.join(" | ").toLowerCase().includes(lowerCaseTerm)) ||
+      (user.phone && user.phone.includes(searchTerm)) ||
+      (user.address && user.address.toLowerCase().includes(lowerCaseTerm)) ||
+      (user.postalCode && user.postalCode.toLowerCase().includes(lowerCaseTerm)) ||
+      (user.city && user.city.toLowerCase().includes(lowerCaseTerm))
+    );
+  }, [users, searchTerm]);
+
+  const handleSearch = (term) => {
+    debouncedSearch(term);
+    // setPage(0);
   };
 
   const onDelete = async (data: UserDocument) => {
@@ -270,7 +279,6 @@ export default function MembersList({ params: { lang } }) {
         throw new Error("Error fetching users");
       }
       const data = await response.json();
-      setFilteredUsers(data["hydra:member"]); // Stocker toute la réponse de l'API
       setUsers(data["hydra:member"]); // Stocker toute la réponse de l'API
       setTotalCount(data["hydra:totalItems"]); // Stocker toute la réponse de l'API
       setLoading(false);
@@ -280,11 +288,6 @@ export default function MembersList({ params: { lang } }) {
     }
   };
 
-  useEffect(() => {
-    if (!isSearching) {
-      setFilteredUsers(users);
-    }
-  }, [users, isSearching]);
   useEffect(() => {
     fetchUsers(); // Appel de l'API quand `page` ou `rowsPerPage` change
   }, [page, rowsPerPage]);
