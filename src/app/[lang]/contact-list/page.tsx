@@ -452,7 +452,7 @@ export default function MembersList({ params: { lang } }) {
           </Typography>
 
           <Stack direction="row" spacing={3}>
-            {selectedUsers.length > 0 && (
+            {selectedUsers.length > 1 && (
               <Button
                 onClick={handleOpenConfirmDeleteMultiple}
                 variant="contained"
@@ -464,6 +464,10 @@ export default function MembersList({ params: { lang } }) {
                   padding: "12px 20px",
                   color: "#fff !important",
                   backgroundColor: "#ff6961",
+                  ":hover": {
+                    backgroundColor: "#ff6961",
+                    boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.4)",
+                  },
                 }}
               >
                 <DeleteIcon sx={{position: "relative", top: "-1px"}}/>
