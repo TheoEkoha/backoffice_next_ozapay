@@ -179,6 +179,7 @@ export default function MembersList({ params: { lang } }) {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
+  const [openConfirmDeleteMultiple, setOpenConfirmDeleteMultiple] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
   const [selectedUsers, setSelectedUsers] = useState([]);
 
@@ -389,6 +390,19 @@ export default function MembersList({ params: { lang } }) {
     return [header.join(","), ...rows].join("\n");
   };
 
+  const handleOpenConfirmDeleteMultiple = () => {
+    setOpenConfirmDeleteMultiple(true);
+  };
+
+  const handleCloseConfirmDeleteMultiple = () => {
+    setOpenConfirmDeleteMultiple(false);
+  };
+
+  const confirmDeleteMultiple = async () => {
+    await onDeleteSelectedUsers();
+    setOpenConfirmDeleteMultiple(false);
+  };
+
   const onDeleteSelectedUsers = async () => {
     const emails = selectedUsers.map((user) => user.email);
     try {
@@ -440,7 +454,7 @@ export default function MembersList({ params: { lang } }) {
           <Stack direction="row" spacing={3}>
             {selectedUsers.length > 0 && (
               <Button
-                onClick={onDeleteSelectedUsers}
+                onClick={handleOpenConfirmDeleteMultiple}
                 variant="contained"
                 sx={{
                   textTransform: "capitalize",
@@ -637,6 +651,29 @@ export default function MembersList({ params: { lang } }) {
             Annuler
           </Button>
           <Button onClick={confirmDelete} color="error" autoFocus>
+            Supprimer
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={openConfirmDeleteMultiple}
+        onClose={handleCloseConfirmDeleteMultiple}
+        aria-labelledby="alert-dialog-multiple-title"
+        aria-describedby="alert-dialog-multiple-description">
+        <DialogTitle id="alert-dialog-multiple-title">
+          Confirmer la suppression
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-multiple-description">
+            Êtes-vous sûr de vouloir supprimer {selectedUsers.length} utilisateurs ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseConfirmDeleteMultiple} color="primary">
+            Annuler
+          </Button>
+          <Button onClick={confirmDeleteMultiple} color="error" autoFocus>
             Supprimer
           </Button>
         </DialogActions>
